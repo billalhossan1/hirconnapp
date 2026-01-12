@@ -4,5 +4,5 @@ class AppConstant {
   static AppConstant get instance => _instance;
 
   final String appLogo = "assets/logo/app_logo_with_name.png";
-  final String font = "Montserrat";
+  final String font = "Selawik";
 }
