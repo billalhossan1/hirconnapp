@@ -1,3 +1,3 @@
-enum AppUserType { user, agency, unKnow }
+enum AppUserType { user, business, unKnow }
 
-AppUserType selectedAppUserType = AppUserType.agency;
+AppUserType selectedAppUserType = AppUserType.business;

@@ -1,21 +1,15 @@
 import 'dart:async';
-
-import 'package:flutter/services.dart';
+import 'package:flutter_timezone/flutter_timezone.dart' as tz;
 
 ///
 /// Class for getting the native timezone.
 ///
 class FlutterTimezone {
-  static const MethodChannel _channel = const MethodChannel('flutter_timezone');
-
   ///
   /// Returns local timezone from the native layer.
   ///
   static Future<String> getLocalTimezone() async {
-    final localTimezone = await _channel.invokeMethod('getLocalTimezone');
-    if (localTimezone == null) {
-      throw ArgumentError('Invalid return from platform getLocalTimezone()');
-    }
+    final localTimezone = await tz.FlutterTimezone.getLocalTimezone();
     return localTimezone;
   }
 
@@ -23,10 +17,9 @@ class FlutterTimezone {
   /// Gets the list of available timezones from the native layer.
   ///
   static Future<List<String>> getAvailableTimezones() async {
-    final availableTimezones = await _channel.invokeListMethod<String>('getAvailableTimezones');
-    if (availableTimezones == null) {
-      throw ArgumentError('Invalid return from platform getAvailableTimezones()');
-    }
+    final availableTimezones = await tz.FlutterTimezone.getAvailableTimezones();
     return availableTimezones;
   }
 }
+
+

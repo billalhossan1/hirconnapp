@@ -1,12 +1,15 @@
 import 'package:hirconn_app/utils/error_log.dart';
 import 'package:get/get.dart';
 
+import '../../../app_all_enum/app_login_status.dart';
+
 class AppNavigationScreenController extends GetxController {
-  RxInt selectedIndex = 0.obs;
+  int selectedIndex = 0;
+
 
   void changeIndex(int index) {
     try {
-      selectedIndex.value = index;
+      selectedIndex = index;
       update();
     } catch (e) {
       errorLog("changeIndex", e);

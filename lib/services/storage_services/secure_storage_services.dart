@@ -86,8 +86,8 @@
 //     return null;
 //   }
 
-//   ////////////////  agency data
-//   Future<void> setAgency(AppAgencyData value) async {
+//   ////////////////  business data
+//   Future<void> setBusiness(AppBusinessData value) async {
 //     try {
 //       await box.write(key: AppStorageKey.instance.userData, value: jsonEncode(value.toJson()));
 //     } catch (e) {
@@ -95,12 +95,12 @@
 //     }
 //   }
 
-//   Future<AppAgencyData?> getAgency() async {
+//   Future<AppBusinessData?> getBusiness() async {
 //     try {
 //       var response = await box.read(key: AppStorageKey.instance.userData) ?? "";
 //       if (response.isNotEmpty) {
 //         var jData = jsonDecode(response);
-//         return AppAgencyData.fromJson(jData);
+//         return AppBusinessData.fromJson(jData);
 //       }
 //     } catch (e) {
 //       errorLog("getUser", e);

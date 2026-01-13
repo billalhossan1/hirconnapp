@@ -64,7 +64,7 @@ class SignUpScreen extends StatelessWidget {
                                   },
                                 ),
 
-                                AppText(data: "Agency", fontWeight: FontWeight.bold, fontSize: 20),
+                                AppText(data: "Business", fontWeight: FontWeight.bold, fontSize: 20),
                                 Gap(width: 30),
                               ],
                             ),

@@ -17,14 +17,17 @@ class SplashScreenController extends GetxController {
         animation2.value = 1.0;
       });
 
-      var value = storageServices.getOnboardScreen();
-      Future.delayed(Duration(seconds: 3), () {
-        if (value) {
+      // var value = storageServices.getOnboardScreen();
+      Future.delayed(const Duration(seconds: 2), () {
+        // if (value) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
           Get.offAllNamed(AppRoutes.instance.appNavigationScreen);
-        } else {
-          Get.offAllNamed(AppRoutes.instance.wellCome);
-        }
+        });
+        // } else {
+        //   Get.offAllNamed(AppRoutes.instance.wellCome);
+        // }
       });
+
     } catch (e) {
       errorLog("onInitialDataLoadScreen", e);
       WidgetsBinding.instance.addPostFrameCallback((_) {
