@@ -12,6 +12,7 @@ import 'package:hirconn_app/screens/auth_all_screens/otp_verification_screen/otp
 import 'package:hirconn_app/screens/auth_all_screens/sign_up_screen/sign_up_screen.dart';
 import 'package:hirconn_app/screens/error_screen/error_screen.dart';
 import 'package:hirconn_app/screens/not_found_screen/not_found_screen.dart';
+import 'package:hirconn_app/screens/on_boarding_screen/on_boarding_screen.dart';
 import 'package:hirconn_app/screens/privacy_policy_screen/privacy_policy_screen.dart';
 import 'package:hirconn_app/screens/splash_screen/splash_screen.dart';
 import 'package:hirconn_app/screens/terms_and_conditions_screen/terms_and_conditions_screen.dart';
@@ -22,6 +23,7 @@ List<GetPage> appRootRoutesFile = <GetPage>[
   GetPage(name: AppRoutes.instance.initial, binding: SplashScreenBinding(), page: () => const SplashScreen()),
   GetPage(name: AppRoutes.instance.errorScreen, binding: SplashScreenBinding(), page: () => const ErrorScreen()),
   GetPage(name: AppRoutes.instance.notFoundScreen, binding: SplashScreenBinding(), page: () => const NotFoundScreen()),
+  GetPage(name: AppRoutes.instance.onBoardingScreen, binding: SplashScreenBinding(), page: () => const OnBoardingScreen()),
   ///////////////////////  auth all start
   GetPage(name: AppRoutes.instance.loginScreen, binding: AuthBinding(), page: () => const LoginScreen(), middlewares: [InternetCheckMiddleWare()]),
   GetPage(name: AppRoutes.instance.forgotScreen, binding: AuthBinding(), page: () => const ForgotScreen(), middlewares: [InternetCheckMiddleWare()]),

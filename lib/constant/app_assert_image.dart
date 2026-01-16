@@ -3,7 +3,7 @@ class AppAssertImage {
   static final AppAssertImage _instance = AppAssertImage._privateConstructor();
   static AppAssertImage get instance => _instance;
 
-  final String logo = "assets/logo/SELE.png";
+  final String logo = "assets/logo/app_logo.png";
   final String networkPlaceholderImage = "assets/images/network_placeholder_image.jpg";
   final String onboardBg = "assets/images/onboard_bg.png";
   final String onboardCar1 = "assets/images/onboard_car1.png";

@@ -25,6 +25,7 @@ class MainEntryApp extends StatelessWidget {
       initialRoute: AppRoutes.instance.initial,
       getPages: appRootRoutesFile,
       theme: appThemeData,
+
       themeMode: ThemeMode.light,
       enableLog: true,
       defaultGlobalState: true,

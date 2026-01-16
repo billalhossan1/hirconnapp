@@ -44,12 +44,13 @@ dependencies:
   flutter_timezone: ^3.0.1
   readmore: ^3.0.0
   get: ^4.7.3
+  flutter_svg: ^2.2.3
   shared_preferences: ^2.3.4
 
   core_kit:
     git:
       url: https://github.com/kmmuzahid/flutter_core_kit.git
-      ref: 1.0.0
+      ref: ^be210a1
 
 dev_dependencies:
   flutter_test:

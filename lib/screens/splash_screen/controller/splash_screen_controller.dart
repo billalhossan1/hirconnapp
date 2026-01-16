@@ -21,7 +21,7 @@ class SplashScreenController extends GetxController {
       Future.delayed(const Duration(seconds: 2), () {
         // if (value) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
-          Get.offAllNamed(AppRoutes.instance.appNavigationScreen);
+          Get.offAllNamed(AppRoutes.instance.onBoardingScreen);
         });
         // } else {
         //   Get.offAllNamed(AppRoutes.instance.wellCome);

@@ -5,11 +5,11 @@ class AppColors {
   static final AppColors _instance = AppColors._privateConstructor();
   static AppColors get instance => _instance;
   ////////////////  app primary use color
-  final Color primary = const Color(0xff007BFF);
-  final Color boxBg = const Color(0xffEBF4FF);
-  final Color boxBg2 = const Color(0xffBDD3EC);
+  final Color primary = const Color(0xff740CA1);
+  final Color boxBg = const Color(0xffF5F5F5);
+  final Color boxBg2 = const Color(0xffF1E7F6);
   final Color primaryTextColor = const Color(0xff333333);
-  final Color subTextColor = const Color(0xff757575);
+  final Color subTextColor = const Color(0xff878787);
   final Color textColor = const Color(0xff333333);
   final Color success = const Color(0xff11D279);
   final Color error = const Color(0xFFFF0000);

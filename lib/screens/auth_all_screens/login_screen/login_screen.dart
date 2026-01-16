@@ -1,15 +1,15 @@
+import 'package:core_kit/button/common_button.dart';
+import 'package:core_kit/text/common_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:hirconn_app/constant/app_assert_image.dart';
 import 'package:hirconn_app/constant/app_colors.dart';
-import 'package:hirconn_app/routes/app_routes.dart';
 import 'package:hirconn_app/screens/auth_all_screens/login_screen/controller/login_screen_controller.dart';
 import 'package:hirconn_app/utils/app_size.dart';
 import 'package:hirconn_app/utils/gap.dart';
-import 'package:hirconn_app/widgets/app_image/app_image.dart';
-import 'package:hirconn_app/widgets/buttons/app_button.dart';
-import 'package:hirconn_app/widgets/inputs/app_input_widget.dart';
-import 'package:hirconn_app/widgets/texts/app_text.dart';
+import '../../../constant/app_assert_icons.dart';
+import '../../../widgets/on_boarding_template_widget/on_boarding_template_widget.dart';
+
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -20,96 +20,40 @@ class LoginScreen extends StatelessWidget {
       init: LoginScreenController(),
       builder: (controller) {
         return Scaffold(
-          body: SafeArea(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: AppSize.width(value: 20.0)),
-              child: SizedBox(
-                width: AppSize.size.width,
-                child: Form(
-                  key: controller.formKey,
-                  child: SingleChildScrollView(
-                    child: Column(
-                      spacing: AppSize.height(value: 30),
-                      children: [
-                        Gap(height: AppSize.height(value: 10)),
-                        AppImage(path: AppAssertImage.instance.logo, width: AppSize.size.width * 0.6),
+          body: OnboardingTemplate(
+            wave1Color: Color(0xffD8BCE5),
+            wave2Color: Color(0xffEADBF1),
+            wave3Color: Color(0xffF2E7F6),
+            bottomPadding: 200.h,
+            child: Column(
+              crossAxisAlignment:CrossAxisAlignment.start,
+              children: [
 
-                        Column(
-                          children: [
-                            AppText(data: "Welcome!", fontSize: 40, fontWeight: FontWeight.w500),
-
-                            AppText(data: "Sign in to continue", fontSize: 25, fontWeight: FontWeight.w200),
-                            Gap(height: AppSize.height(value: 20)),
-                          ],
-                        ),
-
-                        SizedBox(
-                          height: AppSize.size.height * 0.3,
-                          child: Column(
-                            children: [
-                              AppInputWidget(
-                                controller: controller.emailTextEditingController,
-                                borderColor: AppColors.instance.boxBg,
-                                labelText: "Email",
-                                hintText: "Enter your email",
-                                keyboardType: TextInputType.emailAddress,
-                                isEmail: true,
-                                prefix: Icon(Icons.email_outlined, color: AppColors.instance.dark200),
-                              ),
-                              Gap(height: AppSize.height(value: 20)),
-                              AppInputWidget(
-                                controller: controller.passwordTextEditingController,
-                                borderColor: AppColors.instance.boxBg,
-                                labelText: "Password",
-                                hintText: "Enter your password",
-                                isPassWord: true,
-                                textInputAction: TextInputAction.done,
-                                maxLines: 1,
-                                prefix: Icon(Icons.lock_outline, color: AppColors.instance.dark200),
-                              ),
-                              Gap(height: AppSize.height(value: 20)),
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: GestureDetector(
-                                  onTap: () {
-                                    Get.toNamed(AppRoutes.instance.forgotScreen);
-                                  },
-                                  child: AppText(data: "Forgot Password?", color: AppColors.instance.primary500, fontWeight: FontWeight.bold, fontSize: 16),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Column(
-                          children: [
-                            AppButton(
-                              title: "Login",
-                              onTap: () {
-                                controller.checkValidation();
-                              },
-                            ),
-
-                            Gap(height: AppSize.height(value: 20)),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                AppText(data: "Don't have an account? ", color: AppColors.instance.dark200, fontSize: 16),
-                                GestureDetector(
-                                  onTap: () {
-                                    Get.toNamed(AppRoutes.instance.signUpScreen);
-                                  },
-                                  child: AppText(data: "Sign up", color: AppColors.instance.primary500, fontSize: 16, fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Gap(height: AppSize.height(value: 50)),
-                      ],
-                    ),
-                  ),
+                Gap(height: 10.h),
+                CommonText(
+                  text: 'Welcome back!',
+                  fontSize: 32.sp,
+                  fontWeight: FontWeight.w600,
+                  textColor: AppColors.instance.primary,
                 ),
-              ),
+                Gap(height: 20.h),
+                CommonText(
+                  text: 'Let’s get you signed in',
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.w400,
+                  textColor: AppColors.instance.subTextColor,
+                ),
+                Gap(height: 10.h),
+                CommonButton(
+                  buttonWidth: 140.w,
+                  titleText: 'SignIn',
+                  onTap: () {},
+                  icon: SvgPicture.asset(AppAssertIcons.instance.signup),
+                  borderColor: AppColors.instance.primary,
+                  buttonColor: AppColors.instance.boxBg,
+                  titleColor: AppColors.instance.primary,
+                ),
+              ],
             ),
           ),
         );

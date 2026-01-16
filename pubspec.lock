@@ -109,8 +109,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "1.0.0"
-      resolved-ref: "0112adaef7dfb792d3e362c55e8b9580a55692d6"
+      ref: "^be210a1"
+      resolved-ref: be210a1bc3716444bc0c09f664f8599acc599b20
       url: "https://github.com/kmmuzahid/flutter_core_kit.git"
     source: git
     version: "0.0.1"
@@ -352,7 +352,7 @@ packages:
     source: hosted
     version: "2.0.33"
   flutter_svg:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_svg
       sha256: "87fbd7c534435b6c5d9d98b01e1fd527812b82e68ddd8bd35fc45ed0fa8f0a95"

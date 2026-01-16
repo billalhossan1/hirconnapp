@@ -42,4 +42,11 @@ class AppAssertIcons {
   final String calender = "assets/icons/calender.png";
   final String clock = "assets/icons/clock.png";
   final String location2 = "assets/icons/location2.png";
+
+
+
+  //This project  icons
+  final String signup = "assets/icons/signup.svg";
+  final String signIn = "assets/icons/signin.svg";
+  final String backIcon = "assets/icons/back_icon.svg";
 }

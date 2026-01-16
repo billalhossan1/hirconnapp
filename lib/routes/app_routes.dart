@@ -9,6 +9,7 @@ class AppRoutes {
   final String notFoundScreen = "/notFoundScreen";
   /////////////////////// auth related all  screen
   final String loginScreen = "/loginScreen";
+  final String onBoardingScreen = "/onBoardingScreen";
   final String otpVerificationScreen = "/otp-verification";
   final String forgotScreen = "/forgot-screen";
   final String signUpScreen = "/signup-screen";
