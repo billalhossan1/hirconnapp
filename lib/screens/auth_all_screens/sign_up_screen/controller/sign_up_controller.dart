@@ -19,6 +19,13 @@ class SignUpController extends GetxController {
     }
   }
 
+  String selectedAccountType = 'business';
+
+  void selectAccountType(String type) {
+    selectedAccountType = type;
+    update();
+  }
+
   //////////. user types
   RxBool userTypes = true.obs;
   void changeUserType(bool value) {
