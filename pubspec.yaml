@@ -46,13 +46,18 @@ dependencies:
   get: ^4.7.3
   flutter_svg: ^2.2.3
   shared_preferences: ^2.3.4
+  lottie: ^3.3.2
+
 
   core_kit:
     git:
       url: https://github.com/kmmuzahid/flutter_core_kit.git
-      ref: ^be210a1
+      ref: 1.0.1
 
 dev_dependencies:
+  flutter_gen_runner:
+  build_runner:
+#  fvm flutter pub run build_runner watch --delete-conflicting-outputs
   flutter_test:
     sdk: flutter
 
@@ -77,6 +82,9 @@ flutter:
     - assets/fonts/
     - assets/logo/
     - assets/dev_image/
+    - assets/gif/
+    - assets/svg/
+    - assets/lottie/
   # assets:
   #   - images/a_dot_burr.jpeg
 

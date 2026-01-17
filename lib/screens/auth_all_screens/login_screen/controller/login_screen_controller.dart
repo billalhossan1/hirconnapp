@@ -8,6 +8,15 @@ class LoginScreenController extends GetxController {
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  // Account type selection
+  String selectedAccountType = 'business';
+
+  void selectAccountType(String type) {
+    selectedAccountType = type;
+    update();
+  }
+
   void checkValidation() {
     try {
       if (formKey.currentState!.validate()) {

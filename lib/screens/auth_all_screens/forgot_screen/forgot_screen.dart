@@ -1,3 +1,4 @@
+import 'package:core_kit/app_bar/common_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hirconn_app/screens/auth_all_screens/forgot_screen/controller/forgot_screen_controller.dart';
@@ -11,7 +12,7 @@ class ForgotScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: CommonAppBar(),
       body: GetBuilder(
         init: ForgotScreenController(),
         builder: (controller) {

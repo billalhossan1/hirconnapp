@@ -4,41 +4,43 @@ import 'package:hirconn_app/routes/app_routes.dart';
 import 'package:hirconn_app/services/storage_services/get_storage_services.dart';
 import 'package:hirconn_app/utils/error_log.dart';
 
-class SplashScreenController extends GetxController {
-  ////////////  object
-  GetStorageServices storageServices = GetStorageServices.instance;
-  RxDouble animation = 0.0.obs;
-  RxDouble animation2 = 0.0.obs;
+class SplashScreenController extends GetxController
+    with GetSingleTickerProviderStateMixin {
 
-  Future<void> onInitialDataLoadScreen() async {
+  GetStorageServices storageServices = GetStorageServices.instance;
+
+  late AnimationController lottieController;
+
+  @override
+  void onInit() {
+    super.onInit();
+
+    lottieController = AnimationController(vsync: this);
+
+    _startFlow();
+  }
+
+  void _startFlow() {
     try {
-      Future.delayed(Durations.medium1, () {
-        animation.value = 1.0;
-        animation2.value = 1.0;
+      // 2 second পরে animation freeze
+      Future.delayed(const Duration(seconds: 2), () {
+        lottieController.stop(); // 🔥 freeze animation
       });
 
-      // var value = storageServices.getOnboardScreen();
+      // 2 second পরে navigate
       Future.delayed(const Duration(seconds: 2), () {
-        // if (value) {
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          Get.offAllNamed(AppRoutes.instance.onBoardingScreen);
-        });
-        // } else {
-        //   Get.offAllNamed(AppRoutes.instance.wellCome);
-        // }
+        Get.offAllNamed(AppRoutes.instance.onBoardingScreen);
       });
 
     } catch (e) {
-      errorLog("onInitialDataLoadScreen", e);
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        Get.offAllNamed(AppRoutes.instance.errorScreen);
-      });
+      errorLog("SplashScreenController", e);
+      Get.offAllNamed(AppRoutes.instance.errorScreen);
     }
   }
 
   @override
-  void onInit() {
-    onInitialDataLoadScreen();
-    super.onInit();
+  void onClose() {
+    lottieController.dispose();
+    super.onClose();
   }
 }

@@ -11,15 +11,17 @@ ThemeData appThemeData = ThemeData(
 
   appBarTheme: AppBarTheme(backgroundColor: AppColors.instance.white50),
   inputDecorationTheme: InputDecorationTheme(
+
     hintStyle: TextStyle(
       color: AppColors.instance.hintText,
       fontSize: 14,
       fontWeight: FontWeight.w400,
+      fontStyle: FontStyle.normal
     ),
     fillColor: AppColors.instance.boxBg,
-    border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: AppColors.instance.border)),
-    focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: AppColors.instance.border)),
-    enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: AppColors.instance.border)),
+    border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: AppColors.instance.transparent)),
+    focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: AppColors.instance.primary)),
+    enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: AppColors.instance.transparent)),
     errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: AppColors.instance.error)),
     focusedErrorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: AppColors.instance.error)),
   ),

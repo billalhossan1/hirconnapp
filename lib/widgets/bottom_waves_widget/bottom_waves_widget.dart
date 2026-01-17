@@ -7,17 +7,17 @@ class BottomWaves extends StatelessWidget {
   final Color wave1Color;
   final Color wave2Color;
   final Color wave3Color;
-  final String text;
+  final Widget? text;
   final TextStyle? textStyle;
 
   const BottomWaves({
-    Key? key,
+    super.key,
     required this.wave1Color,
     required this.wave2Color,
     required this.wave3Color,
     required this.text,
     this.textStyle,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -37,17 +37,10 @@ class BottomWaves extends StatelessWidget {
               wave3Color: wave3Color,
             ),
           ),
-          Positioned(
+         text!=null? Positioned(
             bottom: 120, // Adjusted to center with the top wave
-            child: AppText(
-           data:    text,
-
-                    color: AppColors.instance.primary,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-
-            ),
-          ),
+            child:text!
+          ): SizedBox.shrink(),
         ],
       ),
     );
