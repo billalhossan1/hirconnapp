@@ -1,8 +1,11 @@
+import 'package:core_kit/core_kit.dart';
 import 'package:core_kit/initializer.dart';
 import 'package:core_kit/network/dio_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hirconn_app/constant/app_assert_icons.dart';
+import 'package:hirconn_app/constant/app_assert_svg.dart';
 import 'package:hirconn_app/routes/app_routes.dart';
 import 'package:hirconn_app/routes/app_routes_file.dart';
 import 'package:hirconn_app/utils/app_size.dart';
@@ -33,6 +36,7 @@ class MainEntryApp extends StatelessWidget {
       navigatorKey: appNavigatorStateKey,
       builder: (context, child) {
         return CoreKit.init(
+          backButton: CommonImage(src: AppAssertIcons.instance.backIcon),
           back: () {
             Get.back();
           },

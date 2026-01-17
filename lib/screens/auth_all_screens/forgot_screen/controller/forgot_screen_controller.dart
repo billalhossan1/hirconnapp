@@ -9,7 +9,7 @@ import 'package:hirconn_app/widgets/app_snack_bar/app_snack_bar.dart';
 class ForgotScreenController extends GetxController {
   PageController pageController = PageController();
   TextEditingController emailController = TextEditingController();
-  TextEditingController passwordTextEditingController = TextEditingController();
+  String password = "";
   TextEditingController confirmPasswordTextEditingController = TextEditingController();
   TextEditingController otpController = TextEditingController();
   GlobalKey<FormState> formKey1 = GlobalKey<FormState>();
@@ -18,10 +18,10 @@ class ForgotScreenController extends GetxController {
 
   void checkEmailFunction() {
     try {
-      if (formKey1.currentState!.validate()) {
+
         pageController.nextPage(duration: 300.milliseconds, curve: Curves.easeInOut);
         startTimer();
-      }
+
     } catch (e) {
       errorLog("checkOtpFunction", e);
     }
@@ -39,10 +39,9 @@ class ForgotScreenController extends GetxController {
 
   void checkCreateFunction() {
     try {
-      if (formKey3.currentState!.validate()) {
+
         AppSnackBar.success("Login with your credentials");
         Get.offAllNamed(AppRoutes.instance.loginScreen);
-      }
     } catch (e) {
       errorLog("checkOtpFunction", e);
     }
@@ -80,7 +79,6 @@ class ForgotScreenController extends GetxController {
       _timer?.cancel();
       emailController.dispose();
       otpController.dispose();
-      passwordTextEditingController.dispose();
       confirmPasswordTextEditingController.dispose();
       pageController.dispose();
     } catch (e) {

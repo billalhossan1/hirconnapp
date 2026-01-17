@@ -1,14 +1,9 @@
+import 'package:core_kit/core_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hirconn_app/constant/app_assert_image.dart';
 import 'package:hirconn_app/constant/app_colors.dart';
 import 'package:hirconn_app/screens/auth_all_screens/forgot_screen/controller/forgot_screen_controller.dart';
-import 'package:hirconn_app/utils/app_size.dart';
-import 'package:hirconn_app/utils/gap.dart';
-import 'package:hirconn_app/widgets/app_image/app_image.dart';
-import 'package:hirconn_app/widgets/buttons/app_button.dart';
-import 'package:hirconn_app/widgets/inputs/app_input_widget.dart';
-import 'package:hirconn_app/widgets/texts/app_text.dart';
+import '../../../../widgets/on_boarding_template_widget/on_boarding_template_widget.dart';
 
 class ForgotScreenCreatePasswordScreen extends StatelessWidget {
   const ForgotScreenCreatePasswordScreen({super.key});
@@ -16,72 +11,65 @@ class ForgotScreenCreatePasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder(
-      init: ForgotScreenController(),
-      builder: (controller) {
-        return Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppSize.width(value: 20.0)),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SingleChildScrollView(
-                child: Form(
-                  key: controller.formKey3,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      AppImage(path: AppAssertImage.instance.forgotCreatePassword, width: AppSize.size.width * 0.6),
+        init: ForgotScreenController(),
+        builder: (controller) {
+          return OnboardingTemplate(
+            wave1Color: Color(0xffD8BCE5),
+            wave2Color: Color(0xffEADBF1),
+            wave3Color: Color(0xffF2E7F6),
+            child: CustomForm(
 
-                      Column(
-                        children: [
-                          Gap(height: 10),
-                          AppText(data: "Create new password", fontSize: 25, fontWeight: FontWeight.w500),
-                          Gap(height: 5),
-                          AppText(data: "Password must have 8 characters", color: AppColors.instance.subTextColor),
-                          Gap(height: 50),
-                        ],
-                      ),
-                      AppInputWidget(
-                        controller: controller.passwordTextEditingController,
-                        borderColor: AppColors.instance.boxBg,
-                        labelText: "New password",
-                        hintText: "Enter your new password",
-                        isPassWord: true,
-                        maxLines: 1,
-                        prefix: Icon(Icons.lock_outline, color: AppColors.instance.dark200),
-                      ),
-                      Gap(height: AppSize.height(value: 20)),
-                      AppInputWidget(
-                        controller: controller.confirmPasswordTextEditingController,
-                        isPassWordSecondValidation: true,
-                        isPassWordSecondValidationController: controller.passwordTextEditingController,
-                        borderColor: AppColors.instance.boxBg,
-                        labelText: "Confirm new Password",
-                        hintText: "Enter new confirm password",
-                        isPassWord: true,
-                        maxLines: 1,
-                        textInputAction: TextInputAction.done,
-                        prefix: Icon(Icons.lock_outline, color: AppColors.instance.dark200),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-
-              Column(
+              builder:(context,formKey)=> Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AppButton(
-                    title: "Update Password",
-                    onTap: () {
-                      controller.checkCreateFunction();
-                    },
+                  CommonText(
+                    text: 'Reset Password',
+                    fontSize: 28,
+                    fontWeight: FontWeight.w700,
+                    textAlign: TextAlign.center,
+                    textColor: AppColors.instance.primary,
                   ),
-                  Gap(height: 50),
+                  10.height,
+                  CommonText(
+                    text:
+                    'Create your new password',
+                    fontSize: 18,
+                    textAlign: TextAlign.start,
+                    textColor: AppColors.instance.subTextColor,
+                    isDescription: true,
+                  ),
+                  30.height,
+                  CommonTextField(
+                    hintText: 'New Password',
+                    onChanged: (value){
+                      controller.password=value;
+                    },
+                    validationType: ValidationType.validatePassword,
+                    borderColor: Colors.white,
+                  ),
+                  10.height,
+
+                  CommonTextField(
+                    originalPassword: (){
+                      return controller.password;
+                    },
+                    hintText: 'Confirm New Password',
+                    validationType: ValidationType.validateConfirmPassword,
+                    borderColor: Colors.white,
+                  ),
+                  20.height,
+
+                  Center(child: CommonButton(titleText: 'Reset Password', onTap: () {
+                    if(formKey.currentState?.validate()??false) {
+                      controller.checkCreateFunction();
+                    }
+                  })),
+
                 ],
               ),
-            ],
-          ),
-        );
-      },
+            ),
+          );
+        }
     );
   }
 }
