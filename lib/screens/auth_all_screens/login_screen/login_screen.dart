@@ -90,7 +90,7 @@ class LoginScreen extends StatelessWidget {
                       label: 'Personal Page',
                     ),
 
-                    24.height,
+                    10.height,
                     AccountTypeButton(
                       selected: controller.selectedAccountType == 'buisness',
                       onTap: () => controller.selectAccountType('buisness'),
