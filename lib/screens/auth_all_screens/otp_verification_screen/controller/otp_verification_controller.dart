@@ -13,7 +13,7 @@ class OtpVerificationController extends GetxController {
   void checkOtpFunction() {
     try {
       if (formKey.currentState!.validate()) {
-        Get.offAndToNamed(AppRoutes.instance.loginScreen);
+        Get.offAndToNamed(AppRoutes.instance.personalPageDetailsScreen);
         AppSnackBar.success("Login with your credentials");
       }
     } catch (e) {

@@ -19,7 +19,7 @@ class OnboardingTemplate extends StatelessWidget {
     required this.wave3Color,
     this.waveText,
     this.waveTextStyle,
-    this.bottomPadding = 200,
+    this.bottomPadding = 10,
     this.isCenterContent = false,
     this.crossAxisAlignment = CrossAxisAlignment.start,
     required this.child,

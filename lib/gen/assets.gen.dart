@@ -146,6 +146,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/success.png
   AssetGenImage get success => const AssetGenImage('assets/icons/success.png');
 
+  /// File path: assets/icons/usa.png
+  AssetGenImage get usa => const AssetGenImage('assets/icons/usa.png');
+
   /// List of all assets
   List<dynamic> get values => [
     backIcon,
@@ -177,6 +180,7 @@ class $AssetsIconsGen {
     signin,
     signup,
     success,
+    usa,
   ];
 }
 
@@ -227,8 +231,11 @@ class $AssetsSvgGen {
   /// File path: assets/svg/personal_page.svg
   String get personalPage => 'assets/svg/personal_page.svg';
 
+  /// File path: assets/svg/usa.svg
+  String get usa => 'assets/svg/usa.svg';
+
   /// List of all assets
-  List<String> get values => [businessPage, done, personalPage];
+  List<String> get values => [businessPage, done, personalPage, usa];
 }
 
 class Assets {
