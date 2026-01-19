@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:hirconn_app/constant/app_colors.dart';
 import 'package:hirconn_app/constant/app_constant.dart';
+import 'package:hirconn_app/routes/app_routes.dart';
 import 'package:hirconn_app/widgets/custom_alert_dialog/custom_alert_dialog.dart';
 
 class PersonalPageDetailsController extends GetxController {
@@ -34,6 +35,7 @@ class PersonalPageDetailsController extends GetxController {
       primaryButtonText: 'Got it',
       onPrimaryPressed: (){
         Get.back();
+        Get.toNamed(AppRoutes.instance.addPhotoScreen);
       },
       context: Get.context!,
       isLogoVisible: true,

@@ -4,6 +4,7 @@ import 'package:hirconn_app/routes/bindings/navigation_screen_binding.dart';
 import 'package:hirconn_app/routes/bindings/splash_screen_binding.dart';
 import 'package:hirconn_app/routes/internet_check_middle_ware.dart';
 import 'package:hirconn_app/screens/about_us_screen/about_us_screen.dart';
+import 'package:hirconn_app/screens/add_photo_screen/add_photo_screen.dart';
 import 'package:hirconn_app/screens/app_navigation_screen/app_navigation_screen.dart';
 import 'package:hirconn_app/screens/auth_all_screens/change_password_screen/change_password_screen.dart';
 import 'package:hirconn_app/screens/auth_all_screens/forgot_screen/forgot_screen.dart';
@@ -38,6 +39,7 @@ List<GetPage> appRootRoutesFile = <GetPage>[
   ///////////////////////  auth all end
   /////////////////////  app base start
   GetPage(name: AppRoutes.instance.appNavigationScreen, binding: NavigationScreenBinding(), page: () => const AppNavigationScreen(), middlewares: [InternetCheckMiddleWare()]),
+  GetPage(name: AppRoutes.instance.addPhotoScreen, binding: NavigationScreenBinding(), page: () => const AddPhotoScreen(), middlewares: [InternetCheckMiddleWare()]),
   GetPage(name: AppRoutes.instance.termsAndConditions, binding: NavigationScreenBinding(), page: () => const TermsAndConditionsScreen(), middlewares: [InternetCheckMiddleWare()]),
   GetPage(name: AppRoutes.instance.privacyPolicy, binding: NavigationScreenBinding(), page: () => const PrivacyPolicyScreen(), middlewares: [InternetCheckMiddleWare()]),
   GetPage(name: AppRoutes.instance.aboutUs, binding: NavigationScreenBinding(), page: () => const AboutUsScreen(), middlewares: [InternetCheckMiddleWare()]),
