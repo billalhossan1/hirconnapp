@@ -29,7 +29,8 @@ class SplashScreenController extends GetxController
 
       // 2 second পরে navigate
       Future.delayed(const Duration(seconds: 2), () {
-        Get.offAllNamed(AppRoutes.instance.onBoardingScreen);
+        // Get.offAllNamed(AppRoutes.instance.onBoardingScreen);
+        Get.offAllNamed(AppRoutes.instance.addPhotoScreen);
       });
 
     } catch (e) {

@@ -1,6 +1,7 @@
 import 'package:core_kit/core_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:hirconn_app/constant/app_colors.dart';
+import 'package:hirconn_app/gen/assets.gen.dart';
 
 class CameraUploadCard extends StatelessWidget {
   final double width;
@@ -8,7 +9,6 @@ class CameraUploadCard extends StatelessWidget {
   final Color backgroundColor;
   final Color iconCircleColor;
   final Color iconColor;
-  final double iconSize;
   final Color? addButtonColor;
   final VoidCallback? onTap;
 
@@ -19,7 +19,6 @@ class CameraUploadCard extends StatelessWidget {
     this.backgroundColor = const Color(0xFFF3EFFF),
     this.iconCircleColor = Colors.white,
     this.iconColor = Colors.black87,
-    this.iconSize = 32,
     this.addButtonColor,
     this.onTap,
   });
@@ -27,56 +26,74 @@ class CameraUploadCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width.w,
-      height: height.h,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          // Card background
-          Container(
-            width: width.w,
-            height: height.h,
-            decoration: BoxDecoration(
-              color: backgroundColor,
-              borderRadius: BorderRadius.circular(20),
-            ),
-          ),
-          // Circle with camera icon
-          Container(
-            width: width.w * 0.45,
-            height: height.h * 0.45,
-            decoration: BoxDecoration(
-              color: iconCircleColor,
-              shape: BoxShape.circle,
-            ),
-            child: Icon(
-              Icons.camera_alt,
-              color: iconColor,
-              size: iconSize.h,
-            ),
-          ),
-          // + Button
-          Positioned(
-            bottom: height.h * 0.15,
-            right: width.w * 0.15,
-            child: GestureDetector(
-              onTap: onTap,
-              child: Container(
-                width: 32.w,
-                height: 32.w,
+      width: width,
+      height: height,
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final double iconCircleSize = constraints.maxHeight * 0.4;
+          final double iconSize = iconCircleSize * 0.5;
+          final double addButtonSize = iconCircleSize * 0.3;
+          final double addIconSize = addButtonSize * 0.6;
+
+          return Stack(
+            alignment: Alignment.center,
+            children: [
+              // Card background
+              Container(
                 decoration: BoxDecoration(
-                  color: addButtonColor??AppColors.instance.primary,
-                  shape: BoxShape.circle,
-                ),
-                child:  Icon(
-                  Icons.add,
-                  color: Colors.white,
-                  size: 20.sp,
+                  color: backgroundColor,
+                  borderRadius: BorderRadius.circular(20),
                 ),
               ),
-            ),
-          ),
-        ],
+
+              // Center camera icon with + button overlaid
+              Positioned(
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Container(
+                      width: iconCircleSize,
+                      height: iconCircleSize,
+                      decoration: BoxDecoration(
+                        color: iconCircleColor,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: CommonImage(
+                          src: Assets.svg.camera,
+                          height: iconSize,
+                          width: iconSize,
+                        ),
+                      ),
+                    ),
+
+                    // + button attached to bottom-right of icon circle
+                    Positioned(
+                      bottom: 0,
+                      right: 0,
+                      child: GestureDetector(
+                        onTap: onTap,
+                        child: Container(
+                          width: addButtonSize,
+                          height: addButtonSize,
+                          decoration: BoxDecoration(
+                            color: addButtonColor??AppColors.instance.primary,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            Icons.add,
+                            color: Colors.white,
+                            size: addIconSize,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
