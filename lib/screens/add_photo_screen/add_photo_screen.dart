@@ -29,6 +29,7 @@ class AddPhotoScreen extends StatelessWidget {
               ),
               10.height,
               CommonText(
+                textAlign: .start,
                 isDescription: true,
                 text:
                     'A profile photo helps people recognize you, build trust, and connect more easily',
@@ -38,7 +39,7 @@ class AddPhotoScreen extends StatelessWidget {
               ),
               20.height,
 
-              const HeaderTextFiled(text: 'Upload Photo'),
+              const HeaderTextFiled(text: 'Main Photo'),
               Obx(
                 () => ImageUploadWidget(
                   width: double.infinity,
@@ -51,9 +52,11 @@ class AddPhotoScreen extends StatelessWidget {
               20.height,
               const HeaderTextFiled(text: 'More Photos', showStar: false),
               4.height,
+           CommonText(text: 'Optional - show more of you',fontSize: 12,textColor: AppColors.instance.subTextColor
+             ,),
+              10.height,
 
-              Obx(
-                () => GridView.builder(
+           GridView.builder(
                   shrinkWrap: true,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
@@ -71,12 +74,12 @@ class AddPhotoScreen extends StatelessWidget {
                         controller.updateGalleryPhoto(index, path),
                   ),
                 ),
-              ),
+
 
               30.height,
 
               // Submit/Next Button
-              CommonButton(onTap: controller.submitPhotos, titleText: 'Next'),
+              Center(child: CommonButton(onTap: controller.submitPhotos, titleText: 'Next')),
               20.height,
             ],
           ),

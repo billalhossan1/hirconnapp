@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:core_kit/button/common_button.dart';
 import 'package:flutter/material.dart';
 import 'package:hirconn_app/constant/app_colors.dart';
 import 'package:hirconn_app/utils/app_size.dart';
@@ -219,13 +220,11 @@ Future<bool> askFirst({
     title: title,
     content: AppText(data: content, textAlign: TextAlign.center),
     radius: 8,
-    confirm: ElevatedButton(
-      onPressed: () async {
-        userConfirmed = true;
-        Get.back();
-      },
-      child: AppText(data: acceptButton),
-    ),
+    confirm:CommonButton(titleText: acceptButton,onTap: () async {
+      userConfirmed = true;
+      Get.back();
+    },),
+
     cancel: TextButton(
       onPressed: () {
         userConfirmed = false;
@@ -249,13 +248,12 @@ Future<bool> getCallAgainPermission({
     title: title,
     content: Text(content, textAlign: TextAlign.center),
     radius: 8,
-    confirm: ElevatedButton(
-      onPressed: () async {
-        userConfirmed = true;
-        Get.back();
-      },
-      child: AppText(data: acceptButton),
-    ),
+    confirm:CommonButton(titleText: acceptButton,onTap: () async {
+      userConfirmed = true;
+      Get.back();
+    },),
+
+
     cancel: TextButton(
       onPressed: () {
         userConfirmed = false;

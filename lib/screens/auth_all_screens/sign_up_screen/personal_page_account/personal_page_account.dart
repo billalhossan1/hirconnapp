@@ -79,20 +79,38 @@ class PersonalPageAccount extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Obx(() => Checkbox(value: controller.isTermsAccepted.value, onChanged: (value){
-                          controller.isTermsAccepted.value = value!;
-                        })),
+                        // ✅ compact + top aligned checkbox (matches screenshot)
+                        Obx(
+                              () => Padding(
+                            padding: const EdgeInsets.only(top: 2), // aligns checkbox with text
+                            child: SizedBox(
+                              width: 18,
+                              height: 18,
+                              child: Checkbox(
+                                value: controller.isTermsAccepted.value,
+                                onChanged: (value) => controller.isTermsAccepted.value = value ?? false,
+                                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
+                                side: const BorderSide(color: Color(0xFFBDBDBD), width: 1),
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(width: 8),
+
                         Expanded(
                           child: RichText(
                             text: TextSpan(
-                              style: TextStyle(
-                                fontSize: 14,
+                              style: const TextStyle(
+                                fontSize: 12,
+                                height: 1.25,
                                 color: Colors.black,
                               ),
                               children: [
-                                TextSpan(
-                                  text: 'By continuing, you agree to ',
-                                ),
+                                const TextSpan(text: 'By continuing, you agree to '),
+
                                 TextSpan(
                                   text: "Hirconn's User Agreement",
                                   style: TextStyle(
@@ -101,11 +119,12 @@ class PersonalPageAccount extends StatelessWidget {
                                   ),
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
+                                      // open user agreement
                                     },
                                 ),
-                                TextSpan(
-                                  text: ' and ',
-                                ),
+
+                                const TextSpan(text: ' and '),
+
                                 TextSpan(
                                   text: "Privacy Notice",
                                   style: TextStyle(
@@ -114,6 +133,7 @@ class PersonalPageAccount extends StatelessWidget {
                                   ),
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
+                                      // open privacy notice
                                     },
                                 ),
                               ],

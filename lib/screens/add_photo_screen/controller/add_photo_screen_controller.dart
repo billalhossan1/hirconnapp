@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hirconn_app/routes/app_routes.dart';
 
 /// Controller for Add Photo Screen
 /// Manages profile photo and gallery photos (up to 6 additional photos)
@@ -83,20 +84,16 @@ class AddPhotoScreenController extends GetxController {
 
   /// Submit photos (implement your upload logic here)
   Future<void> submitPhotos() async {
-    if (!validate()) return;
+    // if (!validate()) return;
 
-    final photos = getAllPhotos();
-    debugPrint('Submitting ${photos.length} photos');
+    // final photos = getAllPhotos();
+    // debugPrint('Submitting ${photos.length} photos');
 
     // TODO: Implement your photo upload logic here
     // Example:
     // await uploadPhotosToServer(photos);
 
     // For now, just show success message
-    Get.snackbar(
-      'Success',
-      'Photos uploaded successfully!',
-      snackPosition: SnackPosition.BOTTOM,
-    );
+    Get.toNamed(AppRoutes.instance.aboutScreen);
   }
 }
