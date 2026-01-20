@@ -228,6 +228,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/camera.svg
   String get camera => 'assets/svg/camera.svg';
 
+  /// File path: assets/svg/congrats.svg
+  String get congrats => 'assets/svg/congrats.svg';
+
   /// File path: assets/svg/done.svg
   String get done => 'assets/svg/done.svg';
 
@@ -238,7 +241,14 @@ class $AssetsSvgGen {
   String get usa => 'assets/svg/usa.svg';
 
   /// List of all assets
-  List<String> get values => [businessPage, camera, done, personalPage, usa];
+  List<String> get values => [
+    businessPage,
+    camera,
+    congrats,
+    done,
+    personalPage,
+    usa,
+  ];
 }
 
 class Assets {

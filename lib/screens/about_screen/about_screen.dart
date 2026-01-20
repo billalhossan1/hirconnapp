@@ -37,7 +37,7 @@ class AboutScreen extends StatelessWidget {
                 height: 200,
               ),
               10.height,
-          
+
               HirconnHeaderText(title: 'Work'),
               6.height,
               HirconnSecondaryText(text: 'Your role, profession, or business'),
@@ -70,13 +70,15 @@ class AboutScreen extends StatelessWidget {
                 },
               ),
               12.height,
-          
+
               // Selected Interests Display (Reusable Widget)
-                 Obx(()=>  InterestSelectionLayout(
-           selectedInterests: controller.selectedInterests.value,
-           onRemove: (interest) => controller.removeInterest(interest),
-                 ),),
-          
+              Obx(
+                () => InterestSelectionLayout(
+                  selectedInterests: controller.selectedInterests.value,
+                  onRemove: (interest) => controller.removeInterest(interest),
+                ),
+              ),
+
               20.height,
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,7 +95,8 @@ class AboutScreen extends StatelessWidget {
                           value: controller.isTermsAccepted.value,
                           onChanged: (value) =>
                               controller.isTermsAccepted.value = value ?? false,
-                          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          materialTapTargetSize:
+                              MaterialTapTargetSize.shrinkWrap,
                           visualDensity: const VisualDensity(
                             horizontal: -4,
                             vertical: -4,
@@ -109,9 +112,9 @@ class AboutScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-          
+
                   const SizedBox(width: 8),
-          
+
                   Expanded(
                     child: RichText(
                       text: TextSpan(
@@ -124,24 +127,28 @@ class AboutScreen extends StatelessWidget {
                           const TextSpan(
                             text: 'By completing sign-up, you agree to the ',
                           ),
-          
+
                           TextSpan(
-                            text: "Hirconn's User Agreement",
+                            text: "Terms of Service",
                             style: TextStyle(
                               color: AppColors.instance.primary,
-                              decoration: TextDecoration.underline,
+                              fontWeight: FontWeight.bold,
                             ),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
                                 // open user agreement
                               },
                           ),
-          
+                          const TextSpan(
+                            text:
+                                ', and acknowledge that your personal information will be processed as described in the ',
+                          ),
+
                           TextSpan(
-                            text: "Terms of Service",
+                            text: "Privacy Notice.",
                             style: TextStyle(
                               color: AppColors.instance.primary,
-                              decoration: TextDecoration.underline,
+                              fontWeight: FontWeight.bold,
                             ),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
@@ -159,8 +166,9 @@ class AboutScreen extends StatelessWidget {
                 child: CommonButton(
                   onTap: () {
                     // Navigate to next or submit
+                    controller.onTapNext();
                   },
-                  titleText: 'Next',
+                  titleText: 'Complete',
                 ),
               ),
               20.height,
@@ -171,4 +179,3 @@ class AboutScreen extends StatelessWidget {
     );
   }
 }
-
