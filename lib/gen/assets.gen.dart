@@ -222,6 +222,21 @@ class $AssetsLottieGen {
 class $AssetsSvgGen {
   const $AssetsSvgGen();
 
+  /// File path: assets/svg/b1.svg
+  String get b1 => 'assets/svg/b1.svg';
+
+  /// File path: assets/svg/b2.svg
+  String get b2 => 'assets/svg/b2.svg';
+
+  /// File path: assets/svg/b3.svg
+  String get b3 => 'assets/svg/b3.svg';
+
+  /// File path: assets/svg/b4.svg
+  String get b4 => 'assets/svg/b4.svg';
+
+  /// File path: assets/svg/b5.svg
+  String get b5 => 'assets/svg/b5.svg';
+
   /// File path: assets/svg/business_page.svg
   String get businessPage => 'assets/svg/business_page.svg';
 
@@ -234,6 +249,24 @@ class $AssetsSvgGen {
   /// File path: assets/svg/done.svg
   String get done => 'assets/svg/done.svg';
 
+  /// File path: assets/svg/p1.svg
+  String get p1 => 'assets/svg/p1.svg';
+
+  /// File path: assets/svg/p2.svg
+  String get p2 => 'assets/svg/p2.svg';
+
+  /// File path: assets/svg/p3.svg
+  String get p3 => 'assets/svg/p3.svg';
+
+  /// File path: assets/svg/p4.svg
+  String get p4 => 'assets/svg/p4.svg';
+
+  /// File path: assets/svg/p5.svg
+  String get p5 => 'assets/svg/p5.svg';
+
+  /// File path: assets/svg/p6.svg
+  String get p6 => 'assets/svg/p6.svg';
+
   /// File path: assets/svg/personal_page.svg
   String get personalPage => 'assets/svg/personal_page.svg';
 
@@ -242,10 +275,21 @@ class $AssetsSvgGen {
 
   /// List of all assets
   List<String> get values => [
+    b1,
+    b2,
+    b3,
+    b4,
+    b5,
     businessPage,
     camera,
     congrats,
     done,
+    p1,
+    p2,
+    p3,
+    p4,
+    p5,
+    p6,
     personalPage,
     usa,
   ];

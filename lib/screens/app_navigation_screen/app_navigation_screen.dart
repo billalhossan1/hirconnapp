@@ -13,8 +13,8 @@ class AppNavigationScreen extends StatelessWidget {
       init: AppNavigationScreenController(),
       builder: (controller) {
         final screens = selectedAppUserType == AppUserType.user
-            ? _getUserScreens()
-            : _getBusinessScreens();
+            ?_getUsersScreens(): _getBusinessScreens()
+        ;
 
         return Scaffold(
           extendBody: true,
@@ -31,7 +31,7 @@ class AppNavigationScreen extends StatelessWidget {
     );
   }
 
-  List<Widget> _getUserScreens() {
+  List<Widget> _getBusinessScreens() {
     // TODO: Add user screens here
     return [
       const Center(child: Text('Home')),
@@ -39,18 +39,18 @@ class AppNavigationScreen extends StatelessWidget {
       const Center(child: Text('Bookings')),
       const Center(child: Text('Messages')),
       const Center(child: Text('Favorites')),
-      const Center(child: Text('Profile')),
     ];
   }
 
-  List<Widget> _getBusinessScreens() {
+  List<Widget> _getUsersScreens() {
     // TODO: Add business screens here
     return [
-      const Center(child: Text('Dashboard')),
+      const Center(child: Text('Home')),
       const Center(child: Text('Bookings')),
       const Center(child: Text('Messages')),
       const Center(child: Text('Analytics')),
       const Center(child: Text('Settings')),
+      const Center(child: Text('Profile')),
     ];
   }
 }

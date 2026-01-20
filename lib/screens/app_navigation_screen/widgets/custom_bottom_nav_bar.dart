@@ -1,5 +1,9 @@
+import 'package:core_kit/utils/core_screen_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hirconn_app/gen/assets.gen.dart';
+
+import '../../../app_all_enum/app_login_status.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -13,13 +17,21 @@ class CustomBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> icons = [
-      'assets/icons/profile.svg',
-      'assets/icons/photos.svg',
-      'assets/icons/chat.svg',
-      'assets/icons/person.svg',
-      'assets/icons/events.svg',
-      'assets/icons/connection.svg',
+    final List<String> userIcons = [
+      Assets.svg.p1,
+      Assets.svg.p2,
+      Assets.svg.p3,
+      Assets.svg.p4,
+      Assets.svg.p5,
+      Assets.svg.p6,
+
+    ];    final List<String> businessIcons = [
+      Assets.svg.b1,
+      Assets.svg.b2,
+      Assets.svg.b3,
+      Assets.svg.b4,
+      Assets.svg.b5,
+
     ];
 
     return Container(
@@ -36,7 +48,7 @@ class CustomBottomNavBar extends StatelessWidget {
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: List.generate(icons.length, (index) {
+        children: List.generate(selectedAppUserType == AppUserType.user?userIcons.length:businessIcons.length, (index) {
           final isSelected = currentIndex == index;
           return Expanded(
             child: InkWell(
@@ -54,12 +66,11 @@ class CustomBottomNavBar extends StatelessWidget {
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),
-                  const SizedBox(height: 12),
                   // Icon
                   SvgPicture.asset(
-                    icons[index],
-                    width: 28,
-                    height: 28,
+                    selectedAppUserType == AppUserType.user? userIcons[index]:businessIcons[index],
+                    width: 72.w,
+                    height: 72.w,
                     // If the icon is not colorful enough, we might need to handle colors
                     // But the design shows colorful icons, so we assume SVGs are colorful
                   ),
