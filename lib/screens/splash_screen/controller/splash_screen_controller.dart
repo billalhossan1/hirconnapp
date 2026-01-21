@@ -31,7 +31,7 @@ class SplashScreenController extends GetxController
       Future.delayed(const Duration(seconds: 2), () {
         // Get.offAllNamed(AppRoutes.instance.onBoardingScreen);
 
-        Get.offAllNamed(AppRoutes.instance.businessRepresentativeScreen);
+        Get.offAllNamed(AppRoutes.instance.businessBasicScreen);
       });
 
     } catch (e) {

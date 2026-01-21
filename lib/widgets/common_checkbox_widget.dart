@@ -6,12 +6,14 @@ import '../constant/app_colors.dart';
 class CommonCheckBox extends StatelessWidget {
   final bool isChecked;
   final ValueChanged<dynamic> onChanged;
+  final Color? textColor;
   final String text;
+  final Color? checkBorderColor;
   const CommonCheckBox({
     super.key,
     required this.isChecked,
     required this.onChanged,
-    required this.text,
+    required this.text, this.textColor, this.checkBorderColor,
   });
 
   @override
@@ -30,7 +32,7 @@ class CommonCheckBox extends StatelessWidget {
               onChanged: onChanged,
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
               visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
-              side: const BorderSide(color: Color(0xFFBDBDBD), width: 1),
+              side:  BorderSide(color: checkBorderColor??Color(0xFFBDBDBD), width: 1),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(3),
               ),
@@ -45,7 +47,7 @@ class CommonCheckBox extends StatelessWidget {
             text: text,
             fontSize: 15,
             fontWeight: FontWeight.w400,
-            textColor: AppColors.instance.primary,
+            textColor: textColor??AppColors.instance.primary,
           ),
         ),
       ],
