@@ -5,11 +5,13 @@ import '../../constant/app_colors.dart';
 
 class HirconnSecondaryText extends StatelessWidget {
   final String text;
-  const HirconnSecondaryText({super.key, required this.text});
+  const   HirconnSecondaryText({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
     return CommonText(
+      textAlign: .start,
+      isDescription: true,
       text: text,
       fontSize: 14,
       textColor: AppColors.instance.subTextColor,

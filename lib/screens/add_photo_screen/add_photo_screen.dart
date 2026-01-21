@@ -39,7 +39,7 @@ class AddPhotoScreen extends StatelessWidget {
               ),
               20.height,
 
-              const HeaderTextFiled(text: 'Main Photo'),
+              const HeaderText(text: 'Main Photo'),
               Obx(
                 () => ImageUploadWidget(
                   width: double.infinity,
@@ -50,7 +50,7 @@ class AddPhotoScreen extends StatelessWidget {
               ),
 
               20.height,
-              const HeaderTextFiled(text: 'More Photos', showStar: false),
+              const HeaderText(text: 'More Photos', showStar: false),
               4.height,
            CommonText(text: 'Optional - show more of you',fontSize: 12,textColor: AppColors.instance.subTextColor
              ,),

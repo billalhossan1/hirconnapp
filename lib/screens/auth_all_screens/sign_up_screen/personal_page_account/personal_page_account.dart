@@ -76,76 +76,13 @@ class PersonalPageAccount extends StatelessWidget {
                       isDescription: true,
                     ),
                     40.height,
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // ✅ compact + top aligned checkbox (matches screenshot)
-                        Obx(
-                              () => Padding(
-                            padding: const EdgeInsets.only(top: 2), // aligns checkbox with text
-                            child: SizedBox(
-                              width: 18,
-                              height: 18,
-                              child: Checkbox(
-                                value: controller.isTermsAccepted.value,
-                                onChanged: (value) => controller.isTermsAccepted.value = value ?? false,
-                                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
-                                side: const BorderSide(color: Color(0xFFBDBDBD), width: 1),
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
-                              ),
-                            ),
-                          ),
-                        ),
-
-                        const SizedBox(width: 8),
-
-                        Expanded(
-                          child: RichText(
-                            text: TextSpan(
-                              style: const TextStyle(
-                                fontSize: 12,
-                                height: 1.25,
-                                color: Colors.black,
-                              ),
-                              children: [
-                                const TextSpan(text: 'By continuing, you agree to '),
-
-                                TextSpan(
-                                  text: "Hirconn's User Agreement",
-                                  style: TextStyle(
-                                    color: AppColors.instance.primary,
-                                    decoration: TextDecoration.underline,
-                                  ),
-                                  recognizer: TapGestureRecognizer()
-                                    ..onTap = () {
-                                      // open user agreement
-                                    },
-                                ),
-
-                                const TextSpan(text: ' and '),
-
-                                TextSpan(
-                                  text: "Privacy Notice",
-                                  style: TextStyle(
-                                    color: AppColors.instance.primary,
-                                    decoration: TextDecoration.underline,
-                                  ),
-                                  recognizer: TapGestureRecognizer()
-                                    ..onTap = () {
-                                      // open privacy notice
-                                    },
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    CommonCheckBoxMultiline(isTermsAccepted: controller.termsAndConditions.value, firstSecondaryText: 'By continuing, you agree to ', secondSecondaryText: ' and ', firstMainText: "Hirconn's User Agreement", secondMainText: 'Privacy Notice', onChanged: (value){
+                      controller.termsAndConditions.value = value!;
+                    }, onTapFirstMainText: (){}, onTapSecondMainText: (){}),
 
                     Center(child: CommonButton(titleText: 'Next', onTap: () {
                       if(formKey.currentState?.validate()??false) {
-                        Get.toNamed(AppRoutes.instance.otpVerificationScreen,arguments: controller.emailTextEditingController.text.trim());
+                        Get.toNamed(AppRoutes.instance.otpVerificationScreen,arguments: {'email':controller.emailTextEditingController.text.trim(),'fromBusiness':false});
                       }
                     })),
                     10.height,
@@ -155,6 +92,93 @@ class PersonalPageAccount extends StatelessWidget {
             );
           }
       )
+    );
+  }
+}
+class CommonCheckBoxMultiline extends StatelessWidget {
+  final bool isTermsAccepted;
+  final String firstSecondaryText;
+  final String secondSecondaryText;
+  final String firstMainText;
+  final String secondMainText;
+  final ValueChanged<dynamic> onChanged;
+  final VoidCallback onTapFirstMainText;
+  final VoidCallback onTapSecondMainText;
+  const CommonCheckBoxMultiline({
+    super.key, required this.isTermsAccepted, required this.firstSecondaryText, required this.secondSecondaryText, required this.firstMainText, required this.secondMainText, required this.onChanged, required this.onTapFirstMainText, required this.onTapSecondMainText,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // ✅ compact + top aligned checkbox (matches screenshot)
+       Padding(
+            padding: const EdgeInsets.only(top: 2), // aligns checkbox with text
+            child: SizedBox(
+              width: 18,
+              height: 18,
+              child: Checkbox(
+                value: isTermsAccepted,
+                onChanged: onChanged,
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
+                side: const BorderSide(color: Color(0xFFBDBDBD), width: 1),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
+              ),
+            ),
+          ),
+
+
+        8.width,
+
+        Expanded(
+          child: RichText(
+            text: TextSpan(
+              style: const TextStyle(
+                fontSize: 12,
+                height: 1.25,
+                color: Colors.black,
+              ),
+              children: [
+                TextSpan(text: firstSecondaryText,style: TextStyle(fontSize: 14.sp)),
+
+                TextSpan(
+                  text: firstMainText,
+                  style: TextStyle(
+                    color: AppColors.instance.primary,
+                    fontWeight: FontWeight.bold,
+                      fontSize: 14.sp
+                  ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      onTapFirstMainText();
+                    },
+                ),
+
+                TextSpan(text:  secondSecondaryText,style: TextStyle(
+                    fontSize: 14.sp
+                )),
+
+                TextSpan(
+                  text: secondMainText,
+                  style: TextStyle(
+                    color: AppColors.instance.primary,
+                    fontWeight: FontWeight.bold,
+                      fontSize: 14.sp
+                  ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      // open privacy notice
+                      onTapSecondMainText();
+                    },
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

@@ -15,7 +15,9 @@ class AppRoutes {
   final String aboutScreen = "/aboutScreen";
   final String personalPageDetailsScreen = "/personalPageDetailsScreen";
   final String profileSuccessScreen = "/profileSuccessScreen";
+  final String businessRepresentativeScreen = "/businessRepresentativeScreen";
   final String otpVerificationScreen = "/otp-verification";
+  final String businessBasicScreen = "/businessBasicScreen";
   final String forgotScreen = "/forgot-screen";
   final String signUpScreen = "/signup-screen";
   final String changePasswordScreen = "/change-password-screen";

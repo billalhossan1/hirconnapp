@@ -3,35 +3,44 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hirconn_app/routes/app_routes.dart';
+import 'package:hirconn_app/utils/app_log.dart';
 import 'package:hirconn_app/utils/error_log.dart';
 import 'package:hirconn_app/widgets/app_snack_bar/app_snack_bar.dart';
 
 class OtpVerificationController extends GetxController {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   RxString email = "".obs;
+  RxBool fromBusiness = false.obs;
 
   void checkOtpFunction() {
     try {
       if (formKey.currentState!.validate()) {
-        Get.offAndToNamed(AppRoutes.instance.personalPageDetailsScreen);
-        AppSnackBar.success("Login with your credentials");
+        appLog("frombusiness====================${fromBusiness.value}");
+        if(fromBusiness.value){
+          Get.offAllNamed(AppRoutes.instance.businessBasicScreen);
+        } else {
+          Get.offAllNamed(AppRoutes.instance.loginScreen);
+        }
       }
     } catch (e) {
       errorLog("checkOtpFunction", e);
     }
   }
 
-  void onAppInitialDataLoadFunction() {
+  Future<void> onAppInitialDataLoadFunction()async {
     try {
-      final argData = Get.arguments;
-      if (argData is String) {
-        email.value = argData;
-        startTimer();
-      } else {
-        WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-          Get.offAllNamed(AppRoutes.instance.errorScreen);
-        });
-      }
+      // final argData = Get.arguments;
+      // if (argData is String) {
+      //   email.value = argData;
+      //   startTimer();
+      // } else {
+      //   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      //     Get.offAllNamed(AppRoutes.instance.errorScreen);
+      //   });
+      // }
+      fromBusiness.value = Get.arguments['fromBusiness'] ?? false;
+      email.value = Get.arguments['email'] ?? "";
+      startTimer();
     } catch (e) {
       errorLog("message", e);
     }
@@ -73,7 +82,7 @@ class OtpVerificationController extends GetxController {
   }
 
   @override
-  void onInit() {
+  Future<void> onInit() async {
     onAppInitialDataLoadFunction();
     super.onInit();
   }

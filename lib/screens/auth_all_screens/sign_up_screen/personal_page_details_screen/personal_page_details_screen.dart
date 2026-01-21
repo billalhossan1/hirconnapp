@@ -49,7 +49,7 @@ class PersonalPageDetailsScreen extends StatelessWidget {
                   ),
                   30.height,
 
-                  HeaderTextFiled(text: 'Date of Birth '),
+                  HeaderText(text: 'Date of Birth '),
                   _ageReaderWidget(controller,entity),
                   // 10.height,
                   // RichText(text: TextSpan(
@@ -85,7 +85,7 @@ class PersonalPageDetailsScreen extends StatelessWidget {
                         'Your age helps show appropriate matches, and can’t be changed later',
                   ),
                   20.height,
-                  HeaderTextFiled(text: 'Name'),
+                  HeaderText(text: 'Name'),
                   CommonTextField(
                     onChanged: (value) {
                       entity.name = value;
@@ -101,7 +101,7 @@ class PersonalPageDetailsScreen extends StatelessWidget {
                   ),
                   20.height,
 
-                  HeaderTextFiled(text: 'Gender'),
+                  HeaderText(text: 'Gender'),
                   CommonDropDown(
 
                     hint: 'Man, Woman, Non-Binary, Prefer not to say',
@@ -120,7 +120,7 @@ class PersonalPageDetailsScreen extends StatelessWidget {
                         'Used to improve discovery and matching. You can update this later',
                   ),
                   20.height,
-                  HeaderTextFiled(text: 'Location'),
+                  HeaderText(text: 'Location'),
                   CommonTextField(
                     borderColor: Colors.transparent,
                     validationType: ValidationType.notRequired,
@@ -274,10 +274,10 @@ class SubTextWidget extends StatelessWidget {
   }
 }
 
-class HeaderTextFiled extends StatelessWidget {
+class HeaderText extends StatelessWidget {
   final String text;
   final bool showStar;
-  const HeaderTextFiled({super.key, required this.text, this.showStar = true});
+  const HeaderText({super.key, required this.text, this.showStar = true});
 
   @override
   Widget build(BuildContext context) {
