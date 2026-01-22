@@ -34,7 +34,7 @@ class VerificationSuccessController extends GetxController
         if(isFromBusiness){
           Get.offAllNamed(AppRoutes.instance.businessBasicScreen);
         } else {
-          Get.offAllNamed(AppRoutes.instance.loginScreen);
+          Get.offAllNamed(AppRoutes.instance.personalPageAccount);
         }
         // Get.offAllNamed(AppRoutes.instance.loginScreen);
         //
