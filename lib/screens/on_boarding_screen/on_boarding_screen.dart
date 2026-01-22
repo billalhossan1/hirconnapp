@@ -15,61 +15,64 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: OnboardingTemplate(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      isCenterContent: true,
-      wave1Color: Color(0xffC9A2DB),
-      wave2Color: Color(0xffD8BCE5),
-      wave3Color: Color(0xffEADBF1),
-      bottomPadding: 200.h,
-      child: Column(
-        children: [
-          CommonImage(
-            src: AppAssertImage.instance.logo,
-            height: 150.h,
-            width: 130.w,
-          ),
-          Gap(height: 10.h),
-          CommonText(
-            text: 'Hirconn',
-            fontSize: 24.sp,
-            fontWeight: FontWeight.w400,
-            textColor: AppColors.instance.primary,
-          ),
-          Gap(height: 20.h),
-          CommonText(
-            textAlign: TextAlign.center,
-            text: 'Connect with people, share updates, and hire\nprofessionals worldwide',
-            fontWeight: FontWeight.w600,
-            autoResize: false,
-            isDescription: false,
-            maxLines: 2,
-          ),
-          Gap(height: 20.h),
-          CommonButton(
-            buttonWidth: 140.w,
-            titleText: 'Sign Up',
-            onTap: () {
-              Get.toNamed(AppRoutes.instance.signUpScreen);
-            },
-            suffix: SvgPicture.asset(AppAssertIcons.instance.signup),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: OnboardingTemplate(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        isCenterContent: true,
+        wave1Color: Color(0xffC9A2DB),
+        wave2Color: Color(0xffD8BCE5),
+        wave3Color: Color(0xffEADBF1),
+        bottomPadding: 200.h,
+        child: Column(
+          children: [
+            CommonImage(
+              src: AppAssertImage.instance.logo,
+              height: 150.h,
+              width: 130.w,
+            ),
+            Gap(height: 10.h),
+            CommonText(
+              text: 'Hirconn',
+              fontSize: 24.sp,
+              fontWeight: FontWeight.w400,
+              textColor: AppColors.instance.primary,
+            ),
+            Gap(height: 20.h),
+            CommonText(
+              textAlign: TextAlign.center,
+              text: 'Connect with people, share updates, and hire\nprofessionals worldwide',
+              fontWeight: FontWeight.w600,
+              autoResize: false,
+              isDescription: false,
+              maxLines: 2,
+            ),
+            Gap(height: 20.h),
+            CommonButton(
+              buttonWidth: 140.w,
+              titleText: 'Sign Up',
+              onTap: () {
+                Get.toNamed(AppRoutes.instance.signUpScreen);
+              },
+              suffix: SvgPicture.asset(AppAssertIcons.instance.signup),
 
-          ),
-          Gap(height: 10.h),
-          CommonButton(
-            buttonWidth: 140.w,
-            titleText: 'Sign In',
-            onTap: () {
-              Get.toNamed(AppRoutes.instance.loginScreen);
-            },
-            suffix: SvgPicture.asset(AppAssertIcons.instance.signIn),
-            
-            borderColor: AppColors.instance.primary,
-            buttonColor: Color(0xffEAEAEA),
-            titleColor: AppColors.instance.primary,
-          ),
-        ],
+            ),
+            Gap(height: 10.h),
+            CommonButton(
+              buttonWidth: 140.w,
+              titleText: 'Sign In',
+              onTap: () {
+                Get.toNamed(AppRoutes.instance.loginScreen);
+              },
+              suffix: SvgPicture.asset(AppAssertIcons.instance.signIn),
+
+              borderColor: AppColors.instance.primary,
+              buttonColor: Color(0xffEAEAEA),
+              titleColor: AppColors.instance.primary,
+            ),
+          ],
+        ),
       ),
-    ),);
+    );
   }
 }
