@@ -7,6 +7,7 @@ import 'package:hirconn_app/routes/app_routes.dart';
 class AddPhotoScreenController extends GetxController {
 
   bool isFromBusiness = false;
+  RxBool isTermsAccept = false.obs;
 
   @override
   void onInit() {

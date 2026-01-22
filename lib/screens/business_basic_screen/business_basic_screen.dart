@@ -99,15 +99,28 @@ class BusinessBasicScreen extends StatelessWidget {
                 validationType: ValidationType.validateRequired,
                 hintText: 'Select category',
                 isReadOnly: true,
-                suffixIcon: CommonButton(
-                  buttonHeight: 40,
-                  titleText: 'Select',
+                suffixIcon: GestureDetector(
                   onTap: () {
                     controller.onTapSelect();
                   },
-                  borderColor: AppColors.instance.primary,
-                  buttonColor: AppColors.instance.boxBg,
-                  titleColor: AppColors.instance.primary,
+                  child: CommonText(
+                    text: 'Select',
+                    // onTap: () {
+                    //   controller.onTapSelect();
+                    // },
+                    borderColor: AppColors.instance.primary,
+                    backgroundColor: AppColors.instance.boxBg,
+                    textColor: AppColors.instance.primary,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    top: 4,
+                    bottom: 4,
+                    left: 8,
+                    right: 8,
+                    enableBorder: true,
+                                 borderRadious: 8,
+
+                  ),
                 ),
               ),
               4.height,

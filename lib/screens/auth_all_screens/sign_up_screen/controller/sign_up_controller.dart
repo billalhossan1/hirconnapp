@@ -16,7 +16,7 @@ class SignUpController extends GetxController {
 
   void checkValidation() {
     if(selectedAccountType=='personal'){
-      Get.toNamed(AppRoutes.instance.personalPageDetailsScreen);
+      Get.toNamed(AppRoutes.instance.personalPageAccount);
     }else{
       Get.toNamed(AppRoutes.instance.businessRepresentativeScreen);
     }

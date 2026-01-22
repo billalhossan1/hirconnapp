@@ -23,27 +23,6 @@ class LoginScreen extends StatelessWidget {
           appBar: CommonAppBar(),
           backgroundColor: Colors.white,
           body: OnboardingTemplate(
-            waveText: Row(
-              children: [
-                InkWell(
-                  onTap: (){
-                    Get.toNamed(AppRoutes.instance.privacyPolicy);
-                  },
-                  child: CommonText(fontWeight: FontWeight.bold,textColor: AppColors.instance.primary,text: 'Privacy Notice',fontSize:12,style: TextStyle(
-                    decoration: TextDecoration.underline,
-                  ),),
-                ),
-                CommonText(fontWeight: FontWeight.bold,textColor: AppColors.instance.primary,text: ' & ',fontSize: 12,),
-                InkWell(
-                  onTap: (){
-                    Get.toNamed(AppRoutes.instance.privacyPolicy);
-                  },
-                  child: CommonText(fontWeight: FontWeight.bold,textColor: AppColors.instance.primary,fontSize: 12,text: 'User Agreement',style: TextStyle(
-                    decoration: TextDecoration.underline,
-                  ),),
-                ),
-              ],
-            ),
             wave1Color: Color(0xffD8BCE5),
             wave2Color: Color(0xffEADBF1),
             wave3Color: Color(0xffF2E7F6),
@@ -191,7 +170,31 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
 
-                60.height,
+                40.height,
+                  Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        InkWell(
+                          onTap: (){
+                            Get.toNamed(AppRoutes.instance.privacyPolicy);
+                          },
+                          child: CommonText(fontWeight: FontWeight.bold,textColor: AppColors.instance.primary,text: 'Privacy Notice',fontSize:12,style: TextStyle(
+                            decoration: TextDecoration.underline,
+                          ),),
+                        ),
+                        CommonText(fontWeight: FontWeight.bold,textColor: AppColors.instance.primary,text: ' & ',fontSize: 12,),
+                        InkWell(
+                          onTap: (){
+                            Get.toNamed(AppRoutes.instance.privacyPolicy);
+                          },
+                          child: CommonText(fontWeight: FontWeight.bold,textColor: AppColors.instance.primary,fontSize: 12,text: 'User Agreement',style: TextStyle(
+                            decoration: TextDecoration.underline,
+                          ),),
+                        ),
+                      ],
+                    ),
+                  ),
 
                   // Privacy Notice & User Agreement
 

@@ -62,55 +62,61 @@ class PersonalPageDetailsController extends GetxController {
   void onTapNext() {
     ShowCustomDialog.showOneButtonDialog(
       primaryButtonText: 'Got it',
-      onPrimaryPressed: (){
+      onPrimaryPressed: () {
         Get.back();
-        Get.toNamed(AppRoutes.instance.addPhotoScreen);
+        Get.toNamed(
+          AppRoutes.instance.addPhotoScreen,
+          arguments: {'fromBusinessHours': false},
+        );
       },
       context: Get.context!,
       isLogoVisible: true,
       content: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-        RichText(text: TextSpan(
-          children: [
-          TextSpan(
-            text: 'Hirconn',style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: AppColors.instance.primary,
-          fontFamily: AppConstant.instance.font
-            )
+          RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: 'Hirconn',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.instance.primary,
+                    fontFamily: AppConstant.instance.font,
+                  ),
+                ),
+                TextSpan(
+                  text: ' is currently available only to users who are ',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: AppColors.instance.subTextColor,
+                    height: 1.5,
+                    fontFamily: AppConstant.instance.font,
+                  ),
+                ),
+                TextSpan(
+                  text: '18 years or older.',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: AppColors.instance.dark500,
+                    fontWeight: FontWeight.bold,
+                    height: 1.5,
+                    fontFamily: AppConstant.instance.font,
+                  ),
+                ),
+              ],
+            ),
           ),
-            TextSpan(
-                text: ' is currently available only to users who are ',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: AppColors.instance.subTextColor,
-                  height: 1.5,
-                  fontFamily: AppConstant.instance.font
-                )
-            ),
-            TextSpan(
-                text: '18 years or older.',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: AppColors.instance.subTextColor,
-                  fontWeight: FontWeight.bold,
-                  height: 1.5,
-                  fontFamily: AppConstant.instance.font
-                )
-            ),
-          ]
-        )),
           10.height,
           CommonText(
-            text: "Based on the information you entered, you're not eligible to create an account right now.",
+            text:
+                "Based on the information you entered, you're not eligible to create an account right now.",
             fontSize: 14,
             textAlign: TextAlign.center,
             textColor: AppColors.instance.subTextColor,
             isDescription: true,
           ),
-
-
         ],
       ),
     );

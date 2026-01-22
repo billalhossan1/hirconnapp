@@ -73,6 +73,7 @@ class BusinessRepresentativeScreen extends StatelessWidget {
               10.height,
               Obx(
                     () => CommonCheckBox(
+                      checkBorderColor: AppColors.instance.dark500,
                   isChecked: controller.isTermsAccepted.value,
                   onChanged: (value) {
                     controller.isTermsAccepted.value = value!;
@@ -89,6 +90,7 @@ class BusinessRepresentativeScreen extends StatelessWidget {
               HeaderText(text: 'Age Confirmation'),
               Obx(
                     () => CommonCheckBox(
+                      checkBorderColor: AppColors.instance.dark500,
                   isChecked: controller.ageConfirmation.value,
                   onChanged: (value) {
                     controller.ageConfirmation.value = value!;
@@ -107,8 +109,12 @@ class BusinessRepresentativeScreen extends StatelessWidget {
                   onChanged: (value) {
                     controller.privacy.value = value!;
                   },
-                  onTapFirstMainText: () {},
-                  onTapSecondMainText: () {},
+                  onTapFirstMainText: () {
+                    Get.toNamed(AppRoutes.instance.privacyPolicy);
+                  },
+                  onTapSecondMainText: () {
+                    Get.toNamed(AppRoutes.instance.privacyPolicy);
+                  },
                 ),
               ),
               30.height,
@@ -126,7 +132,7 @@ class BusinessRepresentativeScreen extends StatelessWidget {
 
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
-                      // open contact support
+                      Get.toNamed(AppRoutes.instance.privacyPolicy);
                     },
                   style: TextStyle(
                     fontSize: 14,
@@ -155,7 +161,7 @@ class BusinessRepresentativeScreen extends StatelessWidget {
                       ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          // open contact support
+                          Get.toNamed(AppRoutes.instance.privacyPolicy);
                         },
                     ),
                   ],

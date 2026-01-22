@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:hirconn_app/constant/app_colors.dart';
 import 'package:hirconn_app/widgets/app_snack_bar/app_snack_bar.dart';
 import 'package:hirconn_app/widgets/texts/app_text.dart';
 import 'package:get/get.dart';
@@ -134,7 +135,7 @@ Future<bool> askFirst({
         userConfirmed = true;
         Get.back();
       },
-      child: AppText(data: acceptButton),
+      child: AppText(data: acceptButton,color: AppColors.instance.primary,),
     ),
     cancel: TextButton(
       onPressed: () {

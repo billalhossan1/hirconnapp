@@ -27,6 +27,7 @@ import 'package:hirconn_app/screens/profile_success_screen/profile_success_scree
 import 'package:hirconn_app/screens/splash_screen/splash_screen.dart';
 import 'package:hirconn_app/screens/terms_and_conditions_screen/terms_and_conditions_screen.dart';
 import 'package:get/get.dart';
+import 'package:hirconn_app/screens/verification_successfull_screen/verification_successfull_screen.dart';
 
 import '../screens/auth_all_screens/sign_up_screen/personal_page_account/personal_page_account.dart';
 
@@ -47,6 +48,7 @@ List<GetPage> appRootRoutesFile = <GetPage>[
   GetPage(name: AppRoutes.instance.forgotScreen, binding: AuthBinding(), page: () => const ForgotScreen(), middlewares: [InternetCheckMiddleWare()]),
   GetPage(name: AppRoutes.instance.signUpScreen, binding: AuthBinding(), page: () => const SignUpScreen(), middlewares: [InternetCheckMiddleWare()]),
   GetPage(name: AppRoutes.instance.otpVerificationScreen, binding: AuthBinding(), page: () => const OtpVerificationScreen(), middlewares: [InternetCheckMiddleWare()]),
+  GetPage(name: AppRoutes.instance.verificationSuccessScreen, binding: AuthBinding(), page: () => const VerificationSuccessfullScreen(), middlewares: [InternetCheckMiddleWare()]),
   GetPage(name: AppRoutes.instance.businessBasicScreen, binding: AuthBinding(), page: () => const BusinessBasicScreen(), middlewares: [InternetCheckMiddleWare()]),
   GetPage(name: AppRoutes.instance.describeYourBusinessScreen, binding: AuthBinding(), page: () => const DescribeYourBusinessScreen(), middlewares: [InternetCheckMiddleWare()]),
   GetPage(name: AppRoutes.instance.businessHoursScreen, binding: AuthBinding(), page: () => const BusinessHoursScreen(), middlewares: [InternetCheckMiddleWare()]),

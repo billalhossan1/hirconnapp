@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hirconn_app/constant/app_colors.dart';
 import 'package:hirconn_app/widgets/texts/app_text.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -233,7 +234,7 @@ This permission is required to select photos.''',
                         data: confirmText,
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
-                        color: Colors.white,
+                        color: AppColors.instance.primary,
                       ),
                     ),
                   ),

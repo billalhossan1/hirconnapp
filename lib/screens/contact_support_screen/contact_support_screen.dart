@@ -100,9 +100,9 @@ class ContactSupportScreen extends StatelessWidget {
               20.height,
               Center(
                 child: CommonButton(
-                  titleText: 'Contact Support',
+                  titleText: 'Send Message',
                   onTap: () {
-
+controller.onTapNext();
                   },
                 ),
               ),

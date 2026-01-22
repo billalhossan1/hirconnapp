@@ -7,6 +7,7 @@ import 'package:hirconn_app/constant/app_assert_image.dart';
 import 'package:hirconn_app/gen/assets.gen.dart';
 import 'package:hirconn_app/screens/auth_all_screens/sign_up_screen/personal_page_details_screen/controller/personal_page_details_controller.dart';
 import '../../../../constant/app_colors.dart';
+import '../../../../routes/app_routes.dart';
 import '../../../../widgets/on_boarding_template_widget/on_boarding_template_widget.dart'
     show OnboardingTemplate;
 import '../entity/signup_entity.dart';
@@ -190,7 +191,9 @@ class PersonalPageDetailsScreen extends StatelessWidget {
                             color: AppColors.instance.primary,
                             decoration: TextDecoration.underline,
                           ),
-                          recognizer: TapGestureRecognizer()..onTap = () {},
+                          recognizer: TapGestureRecognizer()..onTap = () {
+                            Get.toNamed(AppRoutes.instance.privacyPolicy);
+                          },
                         ),
                       ],
                     ),

@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:hirconn_app/constant/app_colors.dart';
 import 'package:hirconn_app/gen/assets.gen.dart';
 
-
 class CustomAlertDialog extends StatelessWidget {
   final String title;
   final Widget child;
@@ -69,7 +68,7 @@ class CustomAlertDialog extends StatelessWidget {
             maxHeight: maxHeight, // ✅ always bounded so footer can stick
           ),
           child: Column(
-            mainAxisSize: MainAxisSize.max, // ✅ important
+            mainAxisSize: MainAxisSize.min, // ✅ important: wrap content size
             children: [
               /// Title
               if (title.isNotEmpty)
@@ -92,7 +91,8 @@ class CustomAlertDialog extends StatelessWidget {
                 ),
 
               /// Body (scrollable)
-              Expanded(
+              Flexible(
+                // ✅ changed from Expanded to allow shrink-wrap
                 child: SingleChildScrollView(
                   padding: EdgeInsets.all(16.w),
                   child: child,
@@ -159,7 +159,6 @@ class CustomAlertDialog extends StatelessWidget {
   }
 }
 
-
 class ShowCustomDialog {
   /// 🔹 ONE BUTTON DIALOG
   static void showOneButtonDialog({
@@ -186,22 +185,23 @@ class ShowCustomDialog {
         title: title,
         dialogHeight: dialogHeight,
         primaryButtonText: primaryButtonText,
-        onPrimaryPressed:
-            onPrimaryPressed ?? () => Navigator.pop(context),
+        onPrimaryPressed: onPrimaryPressed ?? () => Navigator.pop(context),
         titleBackgroundColor: titleBackgroundColor,
         titleTextColor: titleTextColor,
         primaryButtonColor: primaryButtonColor,
         primaryButtonTextColor: primaryButtonTextColor,
         child: Column(
-          crossAxisAlignment:crossAxisAlignment ,
+          crossAxisAlignment: crossAxisAlignment,
           mainAxisSize: MainAxisSize.min,
           children: [
             Row(
               children: [
-                InkWell(onTap:()=>Get.back(),child: CommonImage(src: Assets.icons.backIcon)),
+                InkWell(
+                  onTap: () => Get.back(),
+                  child: CommonImage(src: Assets.icons.backIcon),
+                ),
                 Spacer(),
                 SizedBox.shrink(),
-
               ],
             ),
             20.height,
@@ -268,10 +268,8 @@ class ShowCustomDialog {
         primaryButtonText: primaryButtonText,
         secondaryButtonText: secondaryButtonText,
 
-        onPrimaryPressed:
-            onPrimaryPressed ?? () => Navigator.pop(context),
-        onSecondaryPressed:
-            onSecondaryPressed ?? () => Navigator.pop(context),
+        onPrimaryPressed: onPrimaryPressed ?? () => Navigator.pop(context),
+        onSecondaryPressed: onSecondaryPressed ?? () => Navigator.pop(context),
 
         titleBackgroundColor: titleBackgroundColor,
         titleTextColor: titleTextColor,
@@ -279,7 +277,7 @@ class ShowCustomDialog {
         secondaryButtonColor: secondaryButtonColor,
         primaryButtonTextColor: primaryButtonTextColor,
         secondaryButtonTextColor: secondaryButtonTextColor,
-        child:  Column(
+        child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             isLogoVisible
@@ -317,19 +315,19 @@ class ShowCustomDialog {
   /// scrollable content (inside the dialog body) instead of using the dialog's
   /// bottom button area. Useful when you want the button to follow the content.
   static void showOkButtonAtEndDialog({
-     required BuildContext context,
-     String title = '',
-     required Widget content,
-     bool isLogoVisible = false,
-     String okButtonText = 'OK',
-     VoidCallback? onOkPressed,
-     Color? okButtonColor,
-     Color? okButtonTextColor,
-     bool barrierDismissible = true,
-     double? logoSize,
-     double? dialogHeight,
-     bool okButtonSticky = false, // when true, show OK in dialog footer (sticky)
-   }) {
+    required BuildContext context,
+    String title = '',
+    required Widget content,
+    bool isLogoVisible = false,
+    String okButtonText = 'OK',
+    VoidCallback? onOkPressed,
+    Color? okButtonColor,
+    Color? okButtonTextColor,
+    bool barrierDismissible = true,
+    double? logoSize,
+    double? dialogHeight,
+    bool okButtonSticky = false, // when true, show OK in dialog footer (sticky)
+  }) {
     showDialog(
       context: context,
       barrierDismissible: barrierDismissible,

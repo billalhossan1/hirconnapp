@@ -8,6 +8,8 @@ import 'package:hirconn_app/screens/auth_all_screens/sign_up_screen/personal_pag
 import 'package:hirconn_app/widgets/hirconn_app_widget/hirconn_app_widget.dart';
 import 'package:hirconn_app/widgets/image_upload_widget/image_upload_widget.dart';
 
+import '../../routes/app_routes.dart';
+
 class AddPhotoScreen extends StatelessWidget {
   const AddPhotoScreen({super.key});
 
@@ -100,17 +102,23 @@ class AddPhotoScreen extends StatelessWidget {
                 ),
               ),
              controller.isFromBusiness? 20.height: SizedBox.shrink(),
-              controller.isFromBusiness? CommonCheckBoxMultiline(
-                isTermsAccepted: true,
+              Obx(()=>controller.isFromBusiness? CommonCheckBoxMultiline(
+                isTermsAccepted: controller.isTermsAccept.value,
                 firstSecondaryText: 'By completing sign-up, you agree to the ',
                 secondSecondaryText:
-                    ', and acknowledge that your personal information will be processed as described in the ',
+                ', and acknowledge that your personal information will be processed as described in the ',
                 firstMainText: 'Terms of Service',
                 secondMainText: 'Privacy Notice.',
-                onChanged: (val) {},
-                onTapFirstMainText: (){},
-                onTapSecondMainText: (){},
-              ):SizedBox.shrink(),
+                onChanged: (val) {
+                  controller.isTermsAccept.value= val!;
+                },
+                onTapFirstMainText: (){
+                  Get.toNamed(AppRoutes.instance.privacyPolicy);
+                },
+                onTapSecondMainText: (){
+                  Get.toNamed(AppRoutes.instance.privacyPolicy);
+                },
+              ):SizedBox.shrink(),),
 
               30.height,
 
