@@ -27,48 +27,45 @@ class OnboardingTemplate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Stack(
-        children: [
-          // Bottom waves
-          Positioned(
-            right: 0,
-            left: 0,
-            bottom: 0,
-            child: BottomWaves(
-              wave1Color: wave1Color,
-              wave2Color: wave2Color,
-              wave3Color: wave3Color,
-              text: waveText,
-              textStyle: waveTextStyle ??
-                  const TextStyle(
-                    color: Colors.black87,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  ),
-            ),
+    return Stack(
+      children: [
+        // Bottom waves - Always at the very bottom
+        Positioned(
+          right: 0,
+          left: 0,
+          bottom: 0,
+          child: BottomWaves(
+            wave1Color: wave1Color,
+            wave2Color: wave2Color,
+            wave3Color: wave3Color,
+            text: waveText,
+            textStyle:
+                waveTextStyle ??
+                const TextStyle(
+                  color: Colors.black87,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
           ),
-          // Content area
-          Positioned(
-            top: 0,
-            right: 0,
-            left: 0,
+        ),
+        // Content area - Use SafeArea here to avoid status bar/keyboard
+        SafeArea(
+          child: Positioned.fill(
             bottom: bottomPadding,
             child: LayoutBuilder(
               builder: (context, constraints) {
                 return SingleChildScrollView(
-                  // Ensure the scroll view can still scroll when content is larger than available
                   child: ConstrainedBox(
-                    // Make the inner area take at least the available height so centering works
-                    constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                    constraints: BoxConstraints(
+                      minHeight: constraints.maxHeight,
+                    ),
                     child: Align(
-                      alignment: isCenterContent ? Alignment.center : Alignment.topLeft,
+                      alignment: isCenterContent
+                          ? Alignment.center
+                          : Alignment.topLeft,
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 0),
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: child,
-                        ),
+                        padding: const EdgeInsets.all(16.0),
+                        child: child,
                       ),
                     ),
                   ),
@@ -76,8 +73,8 @@ class OnboardingTemplate extends StatelessWidget {
               },
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

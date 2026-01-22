@@ -20,6 +20,7 @@ class BusinessBasicScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     BusinessBasicController controller = Get.find<BusinessBasicController>();
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: CommonAppBar(),
       body: OnboardingTemplate(
         wave1Color: Color(0xffD8BCE5),

@@ -18,6 +18,7 @@ class DescribeYourBusinessScreen extends StatelessWidget {
         Get.find<DescribeYourBusinessController>();
     return Scaffold(
       appBar: CommonAppBar(),
+      resizeToAvoidBottomInset: false,
       body: OnboardingTemplate(
         wave1Color: Color(0xffD8BCE5),
         wave2Color: Color(0xffEADBF1),
