@@ -19,6 +19,7 @@ class AppRoutes {
   final String otpVerificationScreen = "/otp-verification";
   final String businessBasicScreen = "/businessBasicScreen";
   final String describeYourBusinessScreen = "/describeYourBusinessScreen";
+  final String contactInformationScreen = "/contactInformationScreen";
   final String forgotScreen = "/forgot-screen";
   final String signUpScreen = "/signup-screen";
   final String changePasswordScreen = "/change-password-screen";

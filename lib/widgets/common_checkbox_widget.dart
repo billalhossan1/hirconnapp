@@ -8,12 +8,14 @@ class CommonCheckBox extends StatelessWidget {
   final ValueChanged<dynamic> onChanged;
   final Color? textColor;
   final String text;
+  final double? size;
+  final double? textSize;
   final Color? checkBorderColor;
   const CommonCheckBox({
     super.key,
     required this.isChecked,
     required this.onChanged,
-    required this.text, this.textColor, this.checkBorderColor,
+    required this.text, this.textColor, this.checkBorderColor, this.size, this.textSize,
   });
 
   @override
@@ -25,11 +27,12 @@ class CommonCheckBox extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 2), // aligns checkbox with text
           child: SizedBox(
-            width: 18,
-            height: 18,
+            width: size??18.w,
+            height: size??18.h,
             child: Checkbox(
               value: isChecked,
               onChanged: onChanged,
+
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
               visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
               side:  BorderSide(color: checkBorderColor??Color(0xFFBDBDBD), width: 1),
@@ -45,7 +48,7 @@ class CommonCheckBox extends StatelessWidget {
             textAlign: .start,
             isDescription: true,
             text: text,
-            fontSize: 15,
+            fontSize: textSize??15,
             fontWeight: FontWeight.w400,
             textColor: textColor??AppColors.instance.primary,
           ),

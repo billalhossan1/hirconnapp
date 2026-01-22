@@ -9,6 +9,8 @@ import 'package:hirconn_app/screens/business_basic_screen/controller/business_ba
 import 'package:hirconn_app/screens/business_representive_screen/controller/business_representative_controller.dart';
 import 'package:hirconn_app/screens/describe_your_business_screen/controller/describe_your_business_controller.dart';
 
+import '../../screens/contact_information_screen/controller/contact_information_controller.dart';
+
 class AuthBinding extends Bindings {
   @override
   void dependencies() {
@@ -21,5 +23,6 @@ class AuthBinding extends Bindings {
     Get.lazyPut(() => BusinessRepresentativeController());
     Get.lazyPut(() => BusinessBasicController());
     Get.lazyPut(() => DescribeYourBusinessController());
+    Get.lazyPut(() => ContactInformationController());
   }
 }

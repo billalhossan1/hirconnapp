@@ -2,6 +2,7 @@ import 'package:core_kit/core_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hirconn_app/constant/app_colors.dart';
+import 'package:hirconn_app/routes/app_routes.dart';
 import 'package:hirconn_app/screens/auth_all_screens/sign_up_screen/personal_page_details_screen/personal_page_details_screen.dart';
 import 'package:hirconn_app/screens/describe_your_business_screen/controller/describe_your_business_controller.dart';
 import 'package:hirconn_app/widgets/hirconn_app_widget/hirconn_app_widget.dart';
@@ -97,7 +98,9 @@ class DescribeYourBusinessScreen extends StatelessWidget {
                 'Adding a website helps customers verify, and trust your business',fontSize: 12,
               ),
               20.height,
-              Center(child: CommonButton(titleText: 'Next', onTap: () {})),
+              Center(child: CommonButton(titleText: 'Next', onTap: () {
+                Get.toNamed(AppRoutes.instance.contactInformationScreen);
+              })),
               60.height
             ],
           ),

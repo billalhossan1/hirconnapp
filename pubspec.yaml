@@ -56,7 +56,7 @@ dependencies:
   core_kit:
     git:
       url: https://github.com/kmmuzahid/flutter_core_kit.git
-      ref: 1.0.8
+      ref: ^8b55c03
 
 dev_dependencies:
   flutter_gen_runner:
