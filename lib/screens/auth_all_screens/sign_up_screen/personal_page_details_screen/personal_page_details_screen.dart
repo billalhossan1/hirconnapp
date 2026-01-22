@@ -18,6 +18,7 @@ class PersonalPageDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: CommonAppBar(),
       backgroundColor: Colors.white,
       body: GetBuilder(

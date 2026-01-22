@@ -21,112 +21,115 @@ class ForgotOtpInputScreen extends StatelessWidget {
     return GetBuilder(
         init: ForgotScreenController(),
         builder: (controller) {
-          return OnboardingTemplate(
-            wave1Color: Color(0xffD8BCE5),
-            wave2Color: Color(0xffEADBF1),
-            wave3Color: Color(0xffF2E7F6),
-            child: Form(
-              key: controller.formKey2,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CommonText(
-                      text: 'Email Verification',
-                      fontSize: 28,
-                      fontWeight: FontWeight.w700,
-                      textAlign: TextAlign.center,
-                      textColor: AppColors.instance.primary,
-                    ),
-                    10.height,
-                    CommonText(
-                      text:
-                      'Enter the verification code we send you',
-                      fontSize: 18,
-                      textAlign: TextAlign.start,
-                      textColor: AppColors.instance.subTextColor,
-                      isDescription: true,
-                    ),
-                    20.height,
-
-                    CommonText(
-                      text:
-                      'Enter code here',
-                      fontSize: 14,
-                      textAlign: TextAlign.start,
-                      textColor: AppColors.instance.subTextColor,
-                      isDescription: true,
-                    ),
-                    PinCodeTextField(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      controller: controller.otpController,
-                      length: 6,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter the OTP';
-                        } else if (value.length < 6) {
-                          return 'OTP must be 6 digits';
-                        }
-                        return null;
-                      },
-                      animationType: AnimationType.fade,
-                      keyboardType: TextInputType.number,
-                      pinTheme: PinTheme(
-                        shape: PinCodeFieldShape.box,
-                        borderRadius: BorderRadius.circular(20),
-                        fieldHeight: 50.w,
-                        fieldWidth: 50.w,
-                        activeFillColor:  Color(0xffF1E7F6),
-                        inactiveFillColor:
-                        Color(0xffF7F7F7),
-                        selectedFillColor:
-                        Color(0xffF1E7F6),
-                        activeColor: AppColors.instance.primary,
-                        inactiveColor:AppColors.instance.primary,
-                        selectedColor: AppColors.instance.primary.withAlpha(80),
+          return Scaffold(
+            resizeToAvoidBottomInset: false,
+            body: OnboardingTemplate(
+              wave1Color: Color(0xffD8BCE5),
+              wave2Color: Color(0xffEADBF1),
+              wave3Color: Color(0xffF2E7F6),
+              child: Form(
+                key: controller.formKey2,
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CommonText(
+                        text: 'Email Verification',
+                        fontSize: 28,
+                        fontWeight: FontWeight.w700,
+                        textAlign: TextAlign.center,
+                        textColor: AppColors.instance.primary,
                       ),
-                      animationDuration: const Duration(milliseconds: 300),
-                      backgroundColor: Colors.transparent,
-                      enableActiveFill: true,
-                      appContext: context,
-                    ),
-                    10.height,
-                    CommonText(
-                      text:
-                      "If an account exists, you'll receive a reset code shortly",
-                      fontSize: 14,
-                      textAlign: TextAlign.start,
-                      textColor: AppColors.instance.subTextColor,
-                      isDescription: true,
-                    ),
-                    40.height,
-                    Center(child: CommonButton(titleText: 'Verify', onTap: () {
+                      10.height,
+                      CommonText(
+                        text:
+                        'Enter the verification code we send you',
+                        fontSize: 18,
+                        textAlign: TextAlign.start,
+                        textColor: AppColors.instance.subTextColor,
+                        isDescription: true,
+                      ),
+                      20.height,
 
-                        controller.checkOtpFunction();
-                    })),
-                    10.height,
-                    Center(
-                      child: Obx(
-                            () => RichText(
-                          text: TextSpan(
-                            text: "Resend in ${OtpRelatedFunction().formatSecondFunction(controller.secondsRemaining.value)} ",
-                            style: TextStyle(color: AppColors.instance.primary, fontSize: 14),
-                            children: [
-                               TextSpan(
-                                text:  controller.secondsRemaining.value <= 0 ?"Resend":'',
-                                style: TextStyle(color: controller.secondsRemaining.value > 0 ? AppColors.instance.dark400 : AppColors.instance.primary),
-                                recognizer:
-                                TapGestureRecognizer()
-                                  ..onTap = () {
-                                    controller.reSendOtp();
-                                  },
-                              ),
-                            ],
+                      CommonText(
+                        text:
+                        'Enter code here',
+                        fontSize: 14,
+                        textAlign: TextAlign.start,
+                        textColor: AppColors.instance.subTextColor,
+                        isDescription: true,
+                      ),
+                      PinCodeTextField(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        controller: controller.otpController,
+                        length: 6,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter the OTP';
+                          } else if (value.length < 6) {
+                            return 'OTP must be 6 digits';
+                          }
+                          return null;
+                        },
+                        animationType: AnimationType.fade,
+                        keyboardType: TextInputType.number,
+                        pinTheme: PinTheme(
+                          shape: PinCodeFieldShape.box,
+                          borderRadius: BorderRadius.circular(20),
+                          fieldHeight: 50.w,
+                          fieldWidth: 50.w,
+                          activeFillColor:  Color(0xffF1E7F6),
+                          inactiveFillColor:
+                          Color(0xffF7F7F7),
+                          selectedFillColor:
+                          Color(0xffF1E7F6),
+                          activeColor: AppColors.instance.primary,
+                          inactiveColor:AppColors.instance.primary,
+                          selectedColor: AppColors.instance.primary.withAlpha(80),
+                        ),
+                        animationDuration: const Duration(milliseconds: 300),
+                        backgroundColor: Colors.transparent,
+                        enableActiveFill: true,
+                        appContext: context,
+                      ),
+                      10.height,
+                      CommonText(
+                        text:
+                        "If an account exists, you'll receive a reset code shortly",
+                        fontSize: 14,
+                        textAlign: TextAlign.start,
+                        textColor: AppColors.instance.subTextColor,
+                        isDescription: true,
+                      ),
+                      40.height,
+                      Center(child: CommonButton(titleText: 'Verify', onTap: () {
+
+                          controller.checkOtpFunction();
+                      })),
+                      10.height,
+                      Center(
+                        child: Obx(
+                              () => RichText(
+                            text: TextSpan(
+                              text: "Resend in ${OtpRelatedFunction().formatSecondFunction(controller.secondsRemaining.value)} ",
+                              style: TextStyle(color: AppColors.instance.primary, fontSize: 14),
+                              children: [
+                                 TextSpan(
+                                  text:  controller.secondsRemaining.value <= 0 ?"Resend":'',
+                                  style: TextStyle(color: controller.secondsRemaining.value > 0 ? AppColors.instance.dark400 : AppColors.instance.primary),
+                                  recognizer:
+                                  TapGestureRecognizer()
+                                    ..onTap = () {
+                                      controller.reSendOtp();
+                                    },
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
+              ),
             ),
           );
         }

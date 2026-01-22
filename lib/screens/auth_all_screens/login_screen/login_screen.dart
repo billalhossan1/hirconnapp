@@ -22,6 +22,7 @@ class LoginScreen extends StatelessWidget {
         return Scaffold(
           appBar: CommonAppBar(),
           backgroundColor: Colors.white,
+          resizeToAvoidBottomInset: false,
           body: OnboardingTemplate(
             wave1Color: Color(0xffD8BCE5),
             wave2Color: Color(0xffEADBF1),

@@ -19,7 +19,7 @@ class BusinessRepresentativeScreen extends StatelessWidget {
     BusinessRepresentativeController controller =
         Get.find<BusinessRepresentativeController>();
     return Scaffold(
-      appBar: CommonAppBar(),
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: OnboardingTemplate(
           wave1Color: Color(0xffD8BCE5),
@@ -202,4 +202,3 @@ class BusinessRepresentativeScreen extends StatelessWidget {
             );
   }
 }
-
