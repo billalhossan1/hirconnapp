@@ -30,6 +30,35 @@ class PersonalPageDetailsController extends GetxController {
     selectedCountry.value = country;
   }
 
+  /// Safely extract the gender/title from the dropdown value.
+  ///
+  /// The dropdown in the UI provides a widget (e.g. a custom `DropDownItemWidget`) or
+  /// a plain string. This method returns the underlying title string when possible.
+  String getGenderFromWidget(dynamic value) {
+    if (value == null) return '';
+    // If the dropdown returns a plain String, return it directly.
+    if (value is String) return value;
+
+    // Many custom dropdown items carry a `title` field. Use `dynamic` access to
+    // avoid a hard compile-time dependency on the widget class here.
+    try {
+      final dynamic maybeTitle = (value as dynamic).title;
+      if (maybeTitle is String) return maybeTitle;
+    } catch (_) {
+      // ignore and fall through to other attempts
+    }
+
+    // If the widget contains a Text child with the title, try toString fallback.
+    try {
+      final text = value.toString();
+      // Some widgets include the title in toString; try a quick extract.
+      // This is a best-effort fallback and may return the full toString if nothing else.
+      return text;
+    } catch (_) {
+      return '';
+    }
+  }
+
   void onTapNext() {
     ShowCustomDialog.showOneButtonDialog(
       primaryButtonText: 'Got it',

@@ -3,6 +3,7 @@ import 'package:core_kit/text_field/input_formatters/input_helper.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hirconn_app/constant/app_assert_image.dart';
 import 'package:hirconn_app/gen/assets.gen.dart';
 import 'package:hirconn_app/screens/auth_all_screens/sign_up_screen/personal_page_details_screen/controller/personal_page_details_controller.dart';
 import '../../../../constant/app_colors.dart';
@@ -26,8 +27,9 @@ class PersonalPageDetailsScreen extends StatelessWidget {
             wave2Color: Color(0xffEADBF1),
             wave3Color: Color(0xffF2E7F6),
             child: FormBuilder(
-              entity: SignUpEntity()..email=''
-              ..password='',
+              entity: SignUpEntity()
+                ..email = ''
+                ..password = '',
               builder: (context, formKey, entity) => Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -50,7 +52,7 @@ class PersonalPageDetailsScreen extends StatelessWidget {
                   30.height,
 
                   HeaderText(text: 'Date of Birth '),
-                  _ageReaderWidget(controller,entity),
+                  _ageReaderWidget(controller, entity),
                   // 10.height,
                   // RichText(text: TextSpan(
                   //   children: [
@@ -102,12 +104,30 @@ class PersonalPageDetailsScreen extends StatelessWidget {
                   20.height,
 
                   HeaderText(text: 'Gender'),
-                  CommonDropDown(
 
+                  CommonDropDown<Widget>(
                     hint: 'Man, Woman, Non-Binary, Prefer not to say',
-                    items: ['Man', 'Woman', 'Non-Binary', 'Prefer not to say'],
+                    selectedItemBuilder: (val){
+                      return CommonText(text: controller.getGenderFromWidget(val));
+                    },
+                    items: [
+                      DropDownItemWidget(title: 'Man', image: Assets.svg.man),
+                      DropDownItemWidget(
+                        title: 'Woman',
+                        image: Assets.svg.woman,
+                      ),
+
+                      DropDownItemWidget(
+                        title: 'Non-Binary',
+                        image: Assets.svg.nonBinary,
+                      ),
+                      DropDownItemWidget(
+                        title: 'Prefer not to say',
+                        image: Assets.svg.preferNotToSay,
+                      ),
+                    ],
                     onChanged: (val) {
-                      entity.gender = val;
+                      entity.gender = val != null ? controller.getGenderFromWidget(val) : '';
                     },
                     nameBuilder: (value) {
                       return value;
@@ -125,8 +145,7 @@ class PersonalPageDetailsScreen extends StatelessWidget {
                     borderColor: Colors.transparent,
                     validationType: ValidationType.notRequired,
                     hintText: 'United States',
-                    onChanged: (value) {
-                    },
+                    onChanged: (value) {},
                     prefixIcon: CommonImage(src: Assets.icons.usa.path),
                     isReadOnly: true,
                   ),
@@ -134,7 +153,7 @@ class PersonalPageDetailsScreen extends StatelessWidget {
                   CommonStateDropdown(
                     countryName: 'United States of America',
                     onChanged: (val) {
-                      entity.state = val?.value??'';
+                      entity.state = val?.value ?? '';
                       controller.selectedState.value = val?.value ?? '';
                     },
                   ),
@@ -142,7 +161,6 @@ class PersonalPageDetailsScreen extends StatelessWidget {
 
                   Obx(
                     () => CommonCityDropDown(
-
                       key: Key(controller.selectedState.value),
                       onChange: (val) {
                         entity.city = val ?? '';
@@ -177,7 +195,7 @@ class PersonalPageDetailsScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-
+20.height,
                   Center(
                     child: CommonButton(
                       titleText: 'Next',
@@ -200,7 +218,8 @@ class PersonalPageDetailsScreen extends StatelessWidget {
   }
 
   CommonDateInputTextField _ageReaderWidget(
-    PersonalPageDetailsController controller,SignUpEntity entity
+    PersonalPageDetailsController controller,
+    SignUpEntity entity,
   ) {
     return CommonDateInputTextField(
       // minDate: Utils.subtractYears(DateTime.now(), 140),
@@ -256,6 +275,32 @@ class PersonalPageDetailsScreen extends StatelessWidget {
       onSave: (date) {
         entity.dateOfBirth = date;
       },
+    );
+  }
+}
+
+class DropDownItemWidget extends StatelessWidget {
+  final String title;
+  final String image;
+  const DropDownItemWidget({
+    super.key,
+    required this.title,
+    required this.image,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        CommonText(
+          text: title,
+          fontSize: 14,
+          textAlign: TextAlign.start,
+          textColor: AppColors.instance.subTextColor,
+        ),
+        6.width,
+        CommonImage(src: image,height: 20,width: 20,),
+      ],
     );
   }
 }

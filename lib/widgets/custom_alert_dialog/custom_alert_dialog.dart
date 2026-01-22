@@ -1,5 +1,6 @@
 import 'package:core_kit/core_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hirconn_app/constant/app_colors.dart';
 import 'package:hirconn_app/gen/assets.gen.dart';
 
@@ -51,7 +52,7 @@ class CustomAlertDialog extends StatelessWidget {
     return Dialog(
       backgroundColor: Colors.transparent,
       child: Container(
-        width: 0.86.sp,
+        width: 0.9.sp,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12.r),
@@ -195,6 +196,16 @@ class ShowCustomDialog {
           crossAxisAlignment:crossAxisAlignment ,
           mainAxisSize: MainAxisSize.min,
           children: [
+            Row(
+              children: [
+                InkWell(onTap:()=>Get.back(),child: CommonImage(src: Assets.icons.backIcon)),
+                Spacer(),
+                SizedBox.shrink(),
+
+              ],
+            ),
+            20.height,
+
             isLogoVisible
                 ? Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16.0),

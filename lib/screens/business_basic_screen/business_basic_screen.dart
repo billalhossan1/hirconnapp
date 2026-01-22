@@ -2,6 +2,7 @@ import 'package:core_kit/core_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hirconn_app/constant/app_colors.dart';
+import 'package:hirconn_app/routes/app_routes.dart';
 import 'package:hirconn_app/screens/auth_all_screens/sign_up_screen/personal_page_details_screen/personal_page_details_screen.dart';
 import 'package:hirconn_app/screens/business_basic_screen/controller/business_basic_controller.dart';
 import 'package:hirconn_app/utils/app_log.dart';
@@ -94,19 +95,19 @@ class BusinessBasicScreen extends StatelessWidget {
               HeaderText(text: 'Business Category'),
               4.height,
               CommonTextField(
+
                 validationType: ValidationType.validateRequired,
                 hintText: 'Select category',
                 isReadOnly: true,
-                suffixIcon: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: CommonButton(
-                    buttonHeight: 40,
-                    titleText: 'Select',
-                    onTap: () {},
-                    borderColor: AppColors.instance.primary,
-                    buttonColor: AppColors.instance.boxBg,
-                    titleColor: AppColors.instance.primary,
-                  ),
+                suffixIcon: CommonButton(
+                  buttonHeight: 40,
+                  titleText: 'Select',
+                  onTap: () {
+                    controller.onTapSelect();
+                  },
+                  borderColor: AppColors.instance.primary,
+                  buttonColor: AppColors.instance.boxBg,
+                  titleColor: AppColors.instance.primary,
                 ),
               ),
               4.height,
@@ -355,6 +356,19 @@ class BusinessBasicScreen extends StatelessWidget {
                   controller.isNotRequiredLicense.value = false;
                 },
                 text: 'Not yet',
+              ),
+              10.height,
+              CommonMultilineTextField(
+                validationType: ValidationType.notRequired,
+                hintText:
+                'List all licenses/certifications)',
+                borderColor: Colors.transparent,
+              ),
+              20.height,
+              Center(
+                child: CommonButton(titleText: 'Next', onTap: () {
+                  Get.toNamed(AppRoutes.instance.describeYourBusinessScreen);
+                }),
               ),
             ],
           ),

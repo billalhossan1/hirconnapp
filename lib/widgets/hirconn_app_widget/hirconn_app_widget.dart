@@ -5,7 +5,8 @@ import '../../constant/app_colors.dart';
 
 class HirconnSecondaryText extends StatelessWidget {
   final String text;
-  const   HirconnSecondaryText({super.key, required this.text});
+  final double? fontSize;
+  const   HirconnSecondaryText({super.key, required this.text, this.fontSize});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class HirconnSecondaryText extends StatelessWidget {
       textAlign: .start,
       isDescription: true,
       text: text,
-      fontSize: 14,
+      fontSize:fontSize?? 14,
       textColor: AppColors.instance.subTextColor,
     );
   }
@@ -21,14 +22,18 @@ class HirconnSecondaryText extends StatelessWidget {
 
 class HirconnHeaderText extends StatelessWidget {
   final String title;
-  const HirconnHeaderText({super.key, required this.title});
+  final double? fontSize;
+  final FontWeight? fontWeight;
+  const HirconnHeaderText({super.key, required this.title, this.fontSize, this.fontWeight});
 
   @override
   Widget build(BuildContext context) {
     return CommonText(
+      textAlign: .start,
+      isDescription: true,
       text: title,
-      fontSize: 20,
-      fontWeight: FontWeight.bold,
+      fontSize: fontSize??20,
+      fontWeight: fontWeight??FontWeight.bold,
       textColor: AppColors.instance.primary,
     );
   }

@@ -213,8 +213,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "1.0.3"
-      resolved-ref: f1c03224482f66c0f8052a9153827136937219e9
+      ref: "1.0.8"
+      resolved-ref: a8d57d77e002810441cf807b03989379d88e8483
       url: "https://github.com/kmmuzahid/flutter_core_kit.git"
     source: git
     version: "0.0.1"

@@ -60,9 +60,7 @@ class MainEntryApp extends StatelessWidget {
               //   StorageService().saveAccessToken(data['accessToken']);
               // }
             },
-            clearTokens: () async {
-              // StorageService().removeTokens();
-            },
+
           ),
           child: child,
         );

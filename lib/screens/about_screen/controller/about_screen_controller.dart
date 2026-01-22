@@ -9,22 +9,6 @@ import 'package:hirconn_app/widgets/hirconn_app_widget/hirconn_app_widget.dart';
 import '../../../constant/app_colors.dart';
 
 class AboutScreenController extends GetxController {
-  RxList<SelectedItemsValue> selectedItems = RxList<SelectedItemsValue>([
-    SelectedItemsValue(title: "Legal Services", isSelected: false),
-    SelectedItemsValue(title: "Accounting & Bookkeeping", isSelected: false),
-    SelectedItemsValue(title: "Financial Advisory", isSelected: false),
-    SelectedItemsValue(title: "Consulting", isSelected: false),
-    SelectedItemsValue(title: "Compliance & Risk", isSelected: false),
-    SelectedItemsValue(title: "Compliance & Risk", isSelected: false),
-    SelectedItemsValue(title: "Human Resources", isSelected: false),
-    SelectedItemsValue(title: "Science", isSelected: false),
-    SelectedItemsValue(title: "History", isSelected: false),
-    SelectedItemsValue(title: "Literature", isSelected: false),
-    SelectedItemsValue(title: "Movies", isSelected: false),
-    SelectedItemsValue(title: "Fitness", isSelected: false),
-    SelectedItemsValue(title: "Gaming", isSelected: false),
-    SelectedItemsValue(title: "Photography", isSelected: false),
-  ]);
   List<String> interestList = [
     "Technology",
     "Sports",
@@ -48,6 +32,23 @@ class AboutScreenController extends GetxController {
     "Remote Work",
     "Career Growth",
   ];
+  RxList<SelectedItemsValue> selectedItems = RxList<SelectedItemsValue>([
+    SelectedItemsValue(title: "Legal Services", isSelected: false),
+    SelectedItemsValue(title: "Accounting & Bookkeeping", isSelected: false),
+    SelectedItemsValue(title: "Financial Advisory", isSelected: false),
+    SelectedItemsValue(title: "Consulting", isSelected: false),
+    SelectedItemsValue(title: "Compliance & Risk", isSelected: false),
+    SelectedItemsValue(title: "Compliance & Risk", isSelected: false),
+    SelectedItemsValue(title: "Human Resources", isSelected: false),
+    SelectedItemsValue(title: "Science", isSelected: false),
+    SelectedItemsValue(title: "History", isSelected: false),
+    SelectedItemsValue(title: "Literature", isSelected: false),
+    SelectedItemsValue(title: "Movies", isSelected: false),
+    SelectedItemsValue(title: "Fitness", isSelected: false),
+    SelectedItemsValue(title: "Gaming", isSelected: false),
+    SelectedItemsValue(title: "Photography", isSelected: false),
+  ]);
+
   RxBool isTermsAccepted = false.obs;
   RxList<String> selectedInterests = RxList<String>([]);
   void removeInterest(String interest) {

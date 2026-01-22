@@ -249,6 +249,12 @@ class $AssetsSvgGen {
   /// File path: assets/svg/done.svg
   String get done => 'assets/svg/done.svg';
 
+  /// File path: assets/svg/man.svg
+  String get man => 'assets/svg/man.svg';
+
+  /// File path: assets/svg/non_binary.svg
+  String get nonBinary => 'assets/svg/non_binary.svg';
+
   /// File path: assets/svg/p1.svg
   String get p1 => 'assets/svg/p1.svg';
 
@@ -270,8 +276,14 @@ class $AssetsSvgGen {
   /// File path: assets/svg/personal_page.svg
   String get personalPage => 'assets/svg/personal_page.svg';
 
+  /// File path: assets/svg/prefer not to say.svg
+  String get preferNotToSay => 'assets/svg/prefer not to say.svg';
+
   /// File path: assets/svg/usa.svg
   String get usa => 'assets/svg/usa.svg';
+
+  /// File path: assets/svg/woman.svg
+  String get woman => 'assets/svg/woman.svg';
 
   /// List of all assets
   List<String> get values => [
@@ -284,6 +296,8 @@ class $AssetsSvgGen {
     camera,
     congrats,
     done,
+    man,
+    nonBinary,
     p1,
     p2,
     p3,
@@ -291,7 +305,9 @@ class $AssetsSvgGen {
     p5,
     p6,
     personalPage,
+    preferNotToSay,
     usa,
+    woman,
   ];
 }
 

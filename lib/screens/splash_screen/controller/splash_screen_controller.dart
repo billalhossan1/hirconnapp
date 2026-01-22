@@ -32,6 +32,7 @@ class SplashScreenController extends GetxController
         // Get.offAllNamed(AppRoutes.instance.onBoardingScreen);
 
         Get.offAllNamed(AppRoutes.instance.businessBasicScreen);
+        // Get.offAllNamed(AppRoutes.instance.personalPageDetailsScreen);
       });
 
     } catch (e) {
