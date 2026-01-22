@@ -19,9 +19,11 @@ class LoginScreenController extends GetxController {
 
   void checkValidation() {
     try {
-      if (formKey.currentState!.validate()) {
-        Get.offAndToNamed(AppRoutes.instance.appNavigationScreen);
-      }
+      // if (formKey.currentState!.validate()) {
+        Get.offAndToNamed(AppRoutes.instance.appNavigationScreen,arguments: {
+          'fromBusiness': selectedAccountType == 'business' ? true : false
+        });
+      // }
     } catch (e) {
       errorLog("checkValidation", e);
     }

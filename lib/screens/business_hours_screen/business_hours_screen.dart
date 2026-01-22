@@ -2,6 +2,7 @@ import 'package:core_kit/core_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hirconn_app/constant/app_colors.dart';
+import 'package:hirconn_app/routes/app_routes.dart';
 import 'package:hirconn_app/screens/auth_all_screens/sign_up_screen/personal_page_details_screen/personal_page_details_screen.dart';
 import 'package:hirconn_app/screens/business_hours_screen/controller/business_hours_controller.dart';
 import 'package:hirconn_app/widgets/hirconn_app_widget/hirconn_app_widget.dart';
@@ -36,6 +37,8 @@ class BusinessHoursScreen extends StatelessWidget {
               HirconnSecondaryText(text: 'Let people know when you’re available'),
               10.height,
               HeaderText(text: 'Open Days & Hours'),
+              HirconnSecondaryText(text: 'These hours will be visible in public view',fontSize: 12,),
+              10.height,
               DayTimePickerWidget(
                 dayName: 'Sunday',
                 isSelected: controller.isSundaySelected,
@@ -79,7 +82,11 @@ class BusinessHoursScreen extends StatelessWidget {
                 toTime: controller.saturdayTo,
               ),
               SizedBox(height: 40),
-              CommonButton(titleText: 'Next')
+              Center(child: CommonButton(titleText: 'Next',onTap: (){
+                Get.toNamed(AppRoutes.instance.addPhotoScreen,arguments: {
+                  'fromBusinessHours': true
+                });
+              },))
             ],
           ),
         ),

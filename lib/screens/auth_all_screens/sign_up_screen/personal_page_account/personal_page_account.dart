@@ -142,7 +142,7 @@ class CommonCheckBoxMultiline extends StatelessWidget {
                 color: Colors.black,
               ),
               children: [
-                TextSpan(text: firstSecondaryText,style: TextStyle(fontSize: 14.sp)),
+                TextSpan(text: firstSecondaryText,style: TextStyle(fontSize: 14.sp,color: AppColors.instance.subTextColor)),
 
                 TextSpan(
                   text: firstMainText,
@@ -158,7 +158,7 @@ class CommonCheckBoxMultiline extends StatelessWidget {
                 ),
 
                 TextSpan(text:  secondSecondaryText,style: TextStyle(
-                    fontSize: 14.sp
+                    fontSize: 14.sp,color: AppColors.instance.subTextColor
                 )),
 
                 TextSpan(

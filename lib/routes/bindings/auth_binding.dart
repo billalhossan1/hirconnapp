@@ -8,6 +8,7 @@ import 'package:hirconn_app/screens/auth_all_screens/sign_up_screen/controller/s
 import 'package:hirconn_app/screens/business_basic_screen/controller/business_basic_controller.dart';
 import 'package:hirconn_app/screens/business_hours_screen/controller/business_hours_controller.dart';
 import 'package:hirconn_app/screens/business_representive_screen/controller/business_representative_controller.dart';
+import 'package:hirconn_app/screens/contact_support_screen/controller/contact_support_controller.dart';
 import 'package:hirconn_app/screens/describe_your_business_screen/controller/describe_your_business_controller.dart';
 
 import '../../screens/contact_information_screen/controller/contact_information_controller.dart';
@@ -26,5 +27,6 @@ class AuthBinding extends Bindings {
     Get.lazyPut(() => DescribeYourBusinessController());
     Get.lazyPut(() => ContactInformationController());
     Get.lazyPut(() => BusinessHoursController());
+    Get.lazyPut(() => ContactSupportController());
   }
 }

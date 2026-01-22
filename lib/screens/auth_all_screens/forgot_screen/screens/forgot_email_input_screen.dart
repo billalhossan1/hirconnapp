@@ -1,7 +1,10 @@
 import 'package:core_kit/core_kit.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hirconn_app/routes/app_routes.dart';
 import 'package:hirconn_app/screens/auth_all_screens/forgot_screen/controller/forgot_screen_controller.dart';
+import 'package:hirconn_app/utils/app_log.dart';
 
 import '../../../../constant/app_colors.dart';
 import '../../../../widgets/on_boarding_template_widget/on_boarding_template_widget.dart';
@@ -15,6 +18,34 @@ class ForgotEmailInputScreen extends StatelessWidget {
       init: ForgotScreenController(),
       builder: (controller) {
         return OnboardingTemplate(
+          bottomPadding: 20,
+          waveText:
+          GestureDetector(onTap: (){
+            appLog("Contact Support Clicked");
+            Get.toNamed(AppRoutes.instance.contactSupportScreen);
+          },child: Text('data')),
+          // RichText(text: TextSpan(
+          //   text: "Need help? ",
+          //   style: TextStyle(
+          //     color: AppColors.instance.dark500,
+          //     fontSize: 14,
+          //   ),
+          //   children: [
+          //     TextSpan(
+          //       text: 'Contact Support',
+          //       style: TextStyle(
+          //         color: AppColors.instance.primary,
+          //         decoration: TextDecoration.underline,
+          //         fontWeight: FontWeight.bold,
+          //         fontSize: 14,
+          //       ),
+          //       recognizer: TapGestureRecognizer()..onTap= (){
+          //         appLog("Contact Support Clicked");
+          //         Get.toNamed(AppRoutes.instance.contactSupportScreen);
+          //       },
+          //     ),
+          //   ],
+          // )),
           wave1Color: Color(0xffD8BCE5),
           wave2Color: Color(0xffEADBF1),
           wave3Color: Color(0xffF2E7F6),
@@ -51,6 +82,9 @@ class ForgotEmailInputScreen extends StatelessWidget {
                   "If an account exists, you'll receive a reset code shortly",
                   fontSize: 14,
                   textAlign: TextAlign.start,
+                  style: TextStyle(
+                    fontStyle: FontStyle.italic,
+                  ),
                   textColor: AppColors.instance.subTextColor,
                   isDescription: true,
                 ),

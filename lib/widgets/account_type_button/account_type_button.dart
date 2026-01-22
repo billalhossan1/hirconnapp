@@ -33,26 +33,27 @@ class AccountTypeButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 170.w,
-        height: 48.h,
         padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 4.h),
         decoration: BoxDecoration(
           color: bgColor,
           borderRadius: BorderRadius.circular(12.r),
         ),
-        child: Row(
-          children: [
-           Padding(
-             padding: const EdgeInsets.only(right: 4.0),
-             child: CommonImage(src: iconSvg, height: 24, width: 24,),
-           ),
-            CommonText(
-              text: label,
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-              textColor: textColor,
-            ),
-            const Spacer(),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisSize: MainAxisSize.min, // 🔥 important
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 4.0),
+                child: CommonImage(src: iconSvg, height: 24, width: 24),
+              ),
+              CommonText(
+                text: label,
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                textColor: textColor,
+              ),
+              const SizedBox(width: 8), // Spacer বাদ দিতে হবে ❌
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -60,17 +61,20 @@ class AccountTypeButton extends StatelessWidget {
                 ),
                 height: 24.sp,
                 width: 24.sp,
-                child:selected? CommonImage(
+                child: selected
+                    ? CommonImage(
                   src: Assets.svg.done,
                   height: 20.sp,
                   width: 20.sp,
-                ):SizedBox.shrink(),
+                )
+                    : SizedBox.shrink(),
               ),
-
-          ],
+            ],
+          ),
         ),
       ),
     );
+
   }
 }
 

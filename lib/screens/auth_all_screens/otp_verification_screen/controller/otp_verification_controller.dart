@@ -17,7 +17,7 @@ class OtpVerificationController extends GetxController {
       if (formKey.currentState!.validate()) {
         appLog("frombusiness====================${fromBusiness.value}");
         if(fromBusiness.value){
-          Get.offAllNamed(AppRoutes.instance.businessBasicScreen);
+          Get.toNamed(AppRoutes.instance.businessBasicScreen);
         } else {
           Get.offAllNamed(AppRoutes.instance.loginScreen);
         }

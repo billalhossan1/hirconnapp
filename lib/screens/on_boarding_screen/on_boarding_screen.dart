@@ -48,22 +48,24 @@ class OnBoardingScreen extends StatelessWidget {
           Gap(height: 20.h),
           CommonButton(
             buttonWidth: 140.w,
-            titleText: 'SignUp',
+            titleText: 'Sign Up',
             onTap: () {
               Get.toNamed(AppRoutes.instance.signUpScreen);
             },
-            suffix: SvgPicture.asset(AppAssertIcons.instance.signIn),
+            suffix: SvgPicture.asset(AppAssertIcons.instance.signup),
+
           ),
           Gap(height: 10.h),
           CommonButton(
             buttonWidth: 140.w,
-            titleText: 'SignIn',
+            titleText: 'Sign In',
             onTap: () {
               Get.toNamed(AppRoutes.instance.loginScreen);
             },
-            suffix: SvgPicture.asset(AppAssertIcons.instance.signup),
+            suffix: SvgPicture.asset(AppAssertIcons.instance.signIn),
+            
             borderColor: AppColors.instance.primary,
-            buttonColor: AppColors.instance.boxBg,
+            buttonColor: Color(0xffEAEAEA),
             titleColor: AppColors.instance.primary,
           ),
         ],

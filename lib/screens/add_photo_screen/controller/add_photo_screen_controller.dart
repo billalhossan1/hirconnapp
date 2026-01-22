@@ -5,6 +5,15 @@ import 'package:hirconn_app/routes/app_routes.dart';
 /// Controller for Add Photo Screen
 /// Manages profile photo and gallery photos (up to 6 additional photos)
 class AddPhotoScreenController extends GetxController {
+
+  bool isFromBusiness = false;
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    isFromBusiness = Get.arguments['fromBusinessHours'] ?? false;
+    super.onInit();
+  }
   // Main profile photo
   final Rx<String?> profilePhoto = Rx<String?>(null);
 
@@ -85,7 +94,10 @@ class AddPhotoScreenController extends GetxController {
   /// Submit photos (implement your upload logic here)
   Future<void> submitPhotos() async {
     // if (!validate()) return;
-
+    if(isFromBusiness){
+      Get.toNamed(AppRoutes.instance.appNavigationScreen,arguments: {'fromBusiness': true});
+      return;
+    }
     // final photos = getAllPhotos();
     // debugPrint('Submitting ${photos.length} photos');
 

@@ -15,7 +15,11 @@ class SignUpController extends GetxController {
   RxBool isTermsAccepted = false.obs;
 
   void checkValidation() {
-    Get.toNamed(AppRoutes.instance.personalPageAccount);
+    if(selectedAccountType=='personal'){
+      Get.toNamed(AppRoutes.instance.personalPageDetailsScreen);
+    }else{
+      Get.toNamed(AppRoutes.instance.businessRepresentativeScreen);
+    }
   }
 
   String selectedAccountType = 'business';

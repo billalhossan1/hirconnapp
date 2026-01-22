@@ -5,13 +5,15 @@ import '../../../app_all_enum/app_login_status.dart';
 
 class AppNavigationScreenController extends GetxController {
   int selectedIndex = 0;
-
+  bool isFromBusiness = false;
   @override
   void onInit() {
     // Ensure a default value is set explicitly. The previous code used '=='
     // which is a comparison and does nothing. Use assignment '=' to set the
     // default app user type if you need one here.
-    selectedAppUserType = AppUserType.user;
+    isFromBusiness = Get.arguments['fromBusiness'] ?? false;
+    selectedAppUserType =
+        isFromBusiness ? AppUserType.business : AppUserType.user;
     super.onInit();
   }
 
