@@ -15,7 +15,7 @@ class ContactSupportScreen extends StatelessWidget {
     ContactSupportController controller =
         Get.find<ContactSupportController>();
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false,
       appBar: CommonAppBar(),
       body: OnboardingTemplate(
         wave1Color: Color(0xffD8BCE5),

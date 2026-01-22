@@ -18,7 +18,7 @@ class ContactInformationScreen extends StatelessWidget {
     ContactInformationController controller =
         Get.find<ContactInformationController>();
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false,
       appBar: CommonAppBar(),
       body: OnboardingTemplate(
         wave1Color: Color(0xffD8BCE5),
