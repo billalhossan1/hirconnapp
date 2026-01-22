@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hirconn_app/constant/app_colors.dart';
 import 'package:hirconn_app/gen/assets.gen.dart';
+import 'package:hirconn_app/routes/app_routes.dart';
 import 'package:hirconn_app/screens/auth_all_screens/sign_up_screen/personal_page_details_screen/personal_page_details_screen.dart';
 import 'package:hirconn_app/screens/contact_information_screen/controller/contact_information_controller.dart';
 import 'package:hirconn_app/widgets/common_checkbox_widget.dart';
@@ -124,7 +125,9 @@ class ContactInformationScreen extends StatelessWidget {
               }, text: 'Phone', textSize: 14,textColor: controller.isPreferredEmail.value?AppColors.instance.subTextColor:AppColors.instance.primary,),),
               20.height,
               Center(
-                child: CommonButton(titleText: 'Next', onTap: () {}),
+                child: CommonButton(titleText: 'Next', onTap: () {
+                  Get.toNamed(AppRoutes.instance.businessHoursScreen);
+                }),
               ),
               60.height,
             ],

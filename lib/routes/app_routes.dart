@@ -20,6 +20,7 @@ class AppRoutes {
   final String businessBasicScreen = "/businessBasicScreen";
   final String describeYourBusinessScreen = "/describeYourBusinessScreen";
   final String contactInformationScreen = "/contactInformationScreen";
+  final String businessHoursScreen = "/businessHoursScreen";
   final String forgotScreen = "/forgot-screen";
   final String signUpScreen = "/signup-screen";
   final String changePasswordScreen = "/change-password-screen";
